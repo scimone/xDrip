@@ -604,7 +604,7 @@ public class BgGraphBuilder {
         }
         for (Line lline : previewLineData.getLines()) {
             if (((lline.getPointRadius() == pluginSize) && (lline.getPointColor() == getCol(X.color_secondary_glucose_value)))
-                    || ((lline.getColor() == getCol(X.color_treatment_dot_foreground) || ((lline.getColor() == getCol(X.color_treatment_dot_background) || ((lline.getColor() == getCol(X.color_step_counter1) || (lline.getColor() == getCol(X.color_step_counter2) || (lline.getColor()== getCol(X.color_heart_rate1)))))) {
+                    || ((lline.getColor() == getCol(X.color_treatment_dot_foreground) || (lline.getColor() == getCol(X.color_treatment_dot_background) || (lline.getColor() == getCol(X.color_step_counter1) || (lline.getColor() == getCol(X.color_step_counter2) || (lline.getColor()== getCol(X.color_heart_rate1)))))))) {
                 removeItems.add(lline); // remove plugin or step counter plot from preview graph
             }
 
