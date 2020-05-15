@@ -593,8 +593,8 @@ public class BgGraphBuilder {
             if (d) Log.d(TAG,"Cloned preview chart data");
         }
 
-        previewLineData.setAxisYLeft(yAxis());
-        previewLineData.setAxisXBottom(previewXAxis());
+        //previewLineData.setAxisYLeft(yAxis());
+        //previewLineData.setAxisXBottom(previewXAxis());
 
         // reduce complexity of preview chart by removing some lines
         final List<Line> removeItems = new ArrayList<>();
@@ -2009,7 +2009,7 @@ public class BgGraphBuilder {
         yAxis.setMaxLabelChars(5);
         yAxis.setInside(true);
         yAxis.setTextSize(axisTextSize);
-        yAxis.setHasLines(prefs.getBoolean("show_graph_grid_glucose",true));
+        yAxis.setHasLines(prefs.getBoolean("show_graph_grid_glucose",false));
         return yAxis;
     }
 
