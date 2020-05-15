@@ -370,7 +370,7 @@ public class BgGraphBuilder {
                 line.setFillFlipped(true);
                 line.setHasGradientToTransparent(true);
                 line.setHasPoints(false);
-                line.setStrokeWidth(1);
+                line.setStrokeWidth(3);
                 line.setHasLines(true);
                 line.setSquare(true);
                 line.setPointRadius(1);
@@ -494,7 +494,7 @@ public class BgGraphBuilder {
             final Line macroHeartRateLine = new Line(new_points);
             for (Line this_line : autoSplitLine(macroHeartRateLine, 30)) {
                 this_line.setColor(getCol(X.color_heart_rate1));
-                this_line.setStrokeWidth(6);
+                this_line.setStrokeWidth(5);
                 this_line.setHasPoints(false);
                 this_line.setHasLines(true);
                 this_line.setCubic(true);

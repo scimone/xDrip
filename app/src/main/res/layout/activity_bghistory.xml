@@ -14,7 +14,7 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="#212121">
+            android:background="#000000">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                     android:text="History Statistics"
                     android:background="@android:color/transparent"
                     android:layout_below="@+id/buttonlayout"
-                    android:shadowColor="#ff212121"
+                    android:shadowColor="#ff000000"
                     android:shadowDx="0"
                     android:shadowDy="0"
                     android:shadowRadius="14"

@@ -104,14 +104,14 @@ public class BloodTestTable extends ListActivity {
             tag.raw_data_value.setText(data.source!=null ? data.source : "");
             tag.raw_data_slope.setText("State: " + Long.toString(data.state));
             tag.raw_data_timestamp.setText(new Date(data.timestamp).toString());
-            view.setBackgroundColor(Color.parseColor("#212121"));
+            view.setBackgroundColor(Color.parseColor("#000000"));
 
             /*if (bgReading.ignoreForStats) {
                 // red invalid/cancelled/overridden
                 view.setBackgroundColor(Color.parseColor("#660000"));
             } else {
                 // normal grey
-                view.setBackgroundColor(Color.parseColor("#212121"));
+                view.setBackgroundColor(Color.parseColor("#000000"));
             }
 
             view.setLongClickable(true);
