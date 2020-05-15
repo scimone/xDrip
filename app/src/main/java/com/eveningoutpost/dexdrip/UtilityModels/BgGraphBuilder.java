@@ -1882,6 +1882,9 @@ public class BgGraphBuilder {
         highLine.setHasPoints(false);
         highLine.setStrokeWidth(1);
         highLine.setColor(getCol(X.color_high_values));
+        highLine.setAreaTransparency(50);
+        highLine.setFilled(true);
+        highLine.setFillFlipped(true);
         return highLine;
     }
 
