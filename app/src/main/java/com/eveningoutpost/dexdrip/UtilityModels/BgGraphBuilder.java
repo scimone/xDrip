@@ -611,7 +611,7 @@ public class BgGraphBuilder {
             if ((lline.hasLabels() && (lline.getPointRadius() > 0))) {
 
                 lline.setPointRadius(3); // preserve size for treatments
-                lline.setPointColor(Color.parseColor("#FFFFFF"));
+                lline.setPointColor(Color.parseColor("#69655F"));
             } else if (lline.getPointRadius() > 0) {
                 lline.setPointRadius(unlabledLinesSize);
             }

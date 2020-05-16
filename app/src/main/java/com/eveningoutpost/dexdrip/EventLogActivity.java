@@ -558,7 +558,7 @@ public class EventLogActivity extends BaseAppCompatActivity {
             if (position % 2 == 0) {
                 return Color.WHITE; // off white?
             } else {
-                return Color.parseColor("#ffffffdd");
+                return Color.parseColor("#69655Fdd");
             }
         }
 
