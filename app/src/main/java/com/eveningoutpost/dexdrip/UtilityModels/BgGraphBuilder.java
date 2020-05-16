@@ -2014,6 +2014,7 @@ public class BgGraphBuilder {
         yAxis.setTextSize(axisTextSize);
         yAxis.setHasLines(prefs.getBoolean("show_graph_grid_glucose",false));
         yAxis.setLineColor(Color.parseColor("#212121"));
+        yAxis.setTextColor(Color.parseColor("#212121"));
         return yAxis;
     }
 
@@ -2064,6 +2065,7 @@ public class BgGraphBuilder {
         xAxis.setHasLines(prefs.getBoolean("show_graph_grid_time", true));
         xAxis.setLineColor(Color.parseColor("#212121"));
         xAxis.setTextSize(axisTextSize);
+        xAxis.setTextColor(Color.parseColor("#212121"));
         return xAxis;
     }
 
