@@ -6,9 +6,9 @@
     <color name="light_background">@color/white</color>
     <color name="light_stripe_background">@color/black</color>
     <color name="light_mTimestamp1">@color/black</color>
-    <color name="light_mTimestamp">@color/red_600</color>
-    <color name="light_highColor">@color/yellow_700</color>
-    <color name="light_lowColor">@color/red_600</color>
+    <color name="light_mTimestamp">#D55F4F</color>
+    <color name="light_highColor">#C68362</color>
+    <color name="light_lowColor">#D55F4F</color>
     <color name="light_midColor">@color/black</color>
     <color name="light_gridColor">@color/black</color>
     <!-- dark colors -->
@@ -18,13 +18,13 @@
     <color name="dark_mLinearLayout">@color/grey_50</color>
     <color name="dark_Timestamp">@color/white</color>
     <color name="dark_mTimestamp1_home">@color/black</color>
-    <color name="dark_TimestampOld">@color/red_600</color>
+    <color name="dark_TimestampOld">#D55F4F</color>
     <color name="dark_uploaderBattery">@color/black</color>
-    <color name="dark_uploaderBatteryEmpty">@color/red_600</color>
+    <color name="dark_uploaderBatteryEmpty">#D55F4F</color>
     <color name="dark_mStatus_home">@color/black</color>
 
-    <color name="dark_highColor">@color/yellow_A200</color>
-    <color name="dark_lowColor">@color/RED</color>
+    <color name="dark_highColor">#C68362</color>
+    <color name="dark_lowColor">#D55F4F</color>
     <color name="dark_midColor">@color/grey_50</color>
     <color name="dark_gridColor">@color/grey_50</color>
 
