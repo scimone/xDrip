@@ -108,7 +108,7 @@
                         android:paddingTop="0dp"
                         android:paddingEnd="20dp"
                         android:text="13.3"
-                        android:textColor="#000000"
+                        android:textColor="#69655F"
                         android:textSize="50sp" />
 
                     <ImageView
@@ -201,60 +201,64 @@
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="1dp"
-                    android:src="@drawable/ic_eyedropper_variant_grey600_24dp" />
+                    android:src="@drawable/ic_eyedropper_variant_grey600_24dp"
+                    android:tint="#69655F" />
 
                 <ImageButton
                     android:id="@+id/btnNote"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/lowpredict"
                     android:layout_below="@+id/btnTreatment"
-                    android:layout_marginRight="0dp"
+                    android:layout_alignEnd="@+id/lowpredict"
                     android:layout_marginTop="4dp"
+                    android:layout_marginRight="0dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="Add note"
                     android:gravity="right"
                     android:onClick="showNoteTextInputDialog"
-                    android:paddingBottom="2dp"
                     android:paddingLeft="2dp"
-                    android:paddingRight="6dp"
                     android:paddingTop="2dp"
-                    android:src="@drawable/ic_note_plus_grey600_24dp" />
+                    android:paddingRight="6dp"
+                    android:paddingBottom="2dp"
+                    android:src="@drawable/ic_note_plus_grey600_24dp"
+                    android:tint="#69655F" />
 
 
                 <ImageButton
                     android:id="@+id/btnUndo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/btnNote"
                     android:layout_below="@+id/btnNote"
+                    android:layout_alignStart="@+id/btnNote"
                     android:layout_marginTop="8dp"
                     android:background="@android:color/transparent"
 
                     android:contentDescription="Undo last"
                     android:onClick="undoButtonClick"
-                    android:paddingBottom="3dp"
                     android:paddingLeft="1dp"
-                    android:paddingRight="3dp"
                     android:paddingTop="2dp"
-                    android:src="@drawable/ic_undo_variant_grey600_24dp" />
+                    android:paddingRight="3dp"
+                    android:paddingBottom="3dp"
+                    android:src="@drawable/ic_undo_variant_grey600_24dp"
+                    android:tint="#69655F" />
 
 
                 <ImageButton
                     android:id="@+id/btnRedo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/btnUndo"
                     android:layout_below="@+id/btnUndo"
+                    android:layout_alignStart="@+id/btnUndo"
                     android:layout_marginTop="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="Redo last"
                     android:onClick="redoButtonClick"
-                    android:paddingBottom="1dp"
                     android:paddingLeft="1dp"
-                    android:paddingRight="3dp"
                     android:paddingTop="1dp"
-                    android:src="@drawable/ic_redo_variant_grey600_24dp" />
+                    android:paddingRight="3dp"
+                    android:paddingBottom="1dp"
+                    android:src="@drawable/ic_redo_variant_grey600_24dp"
+                    android:tint="#69655F" />
 
 
                 <TextView
@@ -491,39 +495,41 @@
                     android:id="@+id/bpmButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_alignStart="@+id/vehicleModeButton"
                     android:layout_below="@+id/vehicleModeButton"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_alignStart="@+id/vehicleModeButton"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@android:color/transparent"
                     android:drawableTop="@drawable/ic_heart_pulse_grey600_24dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:onClick="toggleStepsVisibility"
-                    android:paddingBottom="2dp"
                     android:paddingEnd="4dp"
+                    android:paddingBottom="2dp"
                     android:text="123"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:visibility="invisible" />
 
                 <Button
                     android:id="@+id/walkButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_alignStart="@+id/vehicleModeButton"
                     android:layout_below="@+id/bpmButton"
+                    android:layout_alignStart="@+id/vehicleModeButton"
                     android:layout_marginLeft="-10dp"
-                    android:layout_marginRight="0dp"
                     android:layout_marginTop="0dp"
+                    android:layout_marginRight="0dp"
                     android:background="@android:color/transparent"
                     android:drawableTop="@drawable/ic_walk_grey600_24dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:onClick="toggleStepsVisibility"
-                    android:paddingBottom="0dp"
-                    android:paddingEnd="0dp"
                     android:paddingStart="0dp"
                     android:paddingTop="0dp"
+                    android:paddingEnd="0dp"
+                    android:paddingBottom="0dp"
                     android:text="99999"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    tools:visibility="invisible" />
 
 
             </RelativeLayout>
