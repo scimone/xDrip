@@ -527,7 +527,7 @@ public class EventLogActivity extends BaseAppCompatActivity {
                 case 1:
                     return Color.parseColor("#FFB3E5FC");
                 default:
-                    return Color.WHITE;
+                    return Color.parseColor("#69655F");
             }
         }
 
@@ -556,7 +556,7 @@ public class EventLogActivity extends BaseAppCompatActivity {
         // alternate text colors for clarity
         public int colorForPosition(int position) {
             if (position % 2 == 0) {
-                return Color.WHITE; // off white?
+                return Color.parseColor("#69655F"); // off white?
             } else {
                 return Color.parseColor("#69655Fdd");
             }

@@ -1986,7 +1986,7 @@ public class BgGraphBuilder {
         line.setPointColor(ColorUtil.blendColor(Color.BLACK,Color.TRANSPARENT, 0.99f));
         line.setBitmapScale(1f);
         line.setBitmapLabels(true);
-        line.setBitmapLabelShadowColor(Color.WHITE);
+        line.setBitmapLabelShadowColor(Color.parseColor("#69655F"));
         line.setFullShadow(true);
         line.setBitmapCacheProvider(BitmapLoader.getInstance());
         lines.add(line);

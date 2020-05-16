@@ -364,14 +364,14 @@ public class BTGlucoseMeterActivity extends ListActivityWithMenu {
             if (Pref.getString("selected_bluetooth_meter_address", "").equals(device.address)) {
                 viewHolder.deviceName.setTextColor(Color.parseColor("#ff99dd00"));
             } else {
-                viewHolder.deviceName.setTextColor(Color.WHITE);
+                viewHolder.deviceName.setTextColor(Color.parseColor("#69655F"));
             }
 
             boolean is_bonded = device.pairstate == BluetoothDevice.BOND_BONDED;
             if (is_bonded) {
                 viewHolder.deviceAddress.setTextColor(Color.parseColor("#C68362"));
             } else {
-                viewHolder.deviceAddress.setTextColor(Color.WHITE);
+                viewHolder.deviceAddress.setTextColor(Color.parseColor("#69655F"));
             }
 
             viewHolder.deviceName.setText(deviceName);

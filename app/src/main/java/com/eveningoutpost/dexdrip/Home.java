@@ -2853,7 +2853,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         } else {
             // not stale
             if (notificationText.getText().length() == 0) {
-                notificationText.setTextColor(Color.WHITE);
+                notificationText.setTextColor(Color.parseColor("#69655F"));
             }
             boolean bg_from_filtered = Pref.getBoolean("bg_from_filtered", false);
             if (!predictive) {
@@ -2944,7 +2944,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         } else if (bgGraphBuilder.unitized(estimate) >= bgGraphBuilder.highMark) {
             currentBgValueText.setTextColor(Color.parseColor("#FFBB33"));
         } else {
-            currentBgValueText.setTextColor(Color.WHITE);
+            currentBgValueText.setTextColor(Color.parseColor("#69655F"));
         }
 
         // TODO this should be made more efficient probably
