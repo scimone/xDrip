@@ -37,8 +37,8 @@
 
     <!-- Material Design - Color Palette -->
     <!-- Red -->
-    <color name="red_600">#E53935</color>
-    <color name="RED">#FF0000</color>
+    <color name="red_600">#D55F4F</color>
+    <color name="RED">#D55F4F</color>
     <!-- Red -->
 
     <!-- Blue -->
@@ -46,8 +46,8 @@
     <!-- Blue -->
 
     <!-- Yellow -->
-    <color name="yellow_700">#FBC02D</color>
-    <color name="yellow_A200">#FFFF00</color>
+    <color name="yellow_700">#C68362</color>
+    <color name="yellow_A200">#C68362</color>
     <!-- Yellow -->
 
     <!-- Grey -->
