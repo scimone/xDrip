@@ -34,7 +34,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="-5dp"
                 android:text="---"
-                android:textColor="#ffffff"
+                android:textColor="Color.parseColor("#69655F")"
                 android:textSize="55sp" />
 
             <LinearLayout
@@ -53,7 +53,7 @@
                     android:layout_marginTop="-2dp"
                     android:paddingBottom="-2dp"
                     android:text="--"
-                    android:textColor="#ffffff"
+                    android:textColor="Color.parseColor("#69655F")"
                     android:textSize="37sp" />
 
                 <TextView
@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="-- mgdl"
-                    android:textColor="#ffffff"
+                    android:textColor="Color.parseColor("#69655F")"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="--- minutes ago"
-            android:textColor="#ffffff"
+            android:textColor="Color.parseColor("#69655F")"
             android:textSize="10sp" />
 
         <TextView
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="---"
-            android:textColor="#ffffff"
+            android:textColor="Color.parseColor("#69655F")"
             android:textSize="13sp" />
     </LinearLayout>
 </FrameLayout>
