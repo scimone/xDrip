@@ -943,7 +943,7 @@ public class BgGraphBuilder {
             lines[2].setHasLines(true);
             lines[2].setCubic(false);
             lines[2].setFilled(true);
-            lines[2].setAreaTransparency(35);
+            lines[2].setAreaTransparency(0);
             lines[2].setFilled(true);
             lines[2].setPointRadius(1);
             lines[2].setHasPoints(true);
@@ -955,9 +955,9 @@ public class BgGraphBuilder {
             lines[3].setColor(getCol(X.color_treatment_dark));
             lines[3].setHasLines(false);
             lines[3].setCubic(false);
-            lines[3].setFilled(false);
-
-            lines[3].setFilled(false);
+            lines[3].setFilled(true);
+            lines[3].setAreaTransparency(35)
+            lines[3].setFilled(true);
             lines[3].setPointRadius(1);
             lines[3].setHasPoints(true);
 
