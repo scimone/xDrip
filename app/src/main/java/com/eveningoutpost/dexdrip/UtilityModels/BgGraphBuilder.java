@@ -959,7 +959,7 @@ public class BgGraphBuilder {
             lines[3].setAreaTransparency(65);
             lines[3].setFilled(true);
             lines[3].setPointRadius(1);
-            lines[3].setHasPoints(true);
+            //lines[3].setHasPoints(true);
 
             // annotations
             lines[4] = new Line(annotationValues);
