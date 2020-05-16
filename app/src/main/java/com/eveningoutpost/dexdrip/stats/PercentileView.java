@@ -205,7 +205,7 @@ public class PercentileView extends View {
         Paint myPaint = new Paint();
         myPaint.setStyle(Paint.Style.STROKE);
         myPaint.setAntiAlias(false);
-        myPaint.setColor(Color.RED);
+        myPaint.setColor(Color.parseColor("#D55F4F"));
         myPaint.setStrokeWidth(dp2px(3));
         canvas.drawLine(dpOffset, lowPosition, canvas.getWidth(), lowPosition, myPaint);
         myPaint.setColor(Color.parseColor("#C68362"));

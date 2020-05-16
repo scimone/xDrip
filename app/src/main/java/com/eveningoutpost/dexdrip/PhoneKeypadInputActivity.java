@@ -424,7 +424,7 @@ public class PhoneKeypadInputActivity extends BaseActivity {
     private void updateTab() {
 
         final int offColor = Color.DKGRAY;
-        final int onColor = Color.RED;
+        final int onColor = Color.parseColor("#D55F4F");
 
         insulintabbutton.setBackgroundColor(offColor);
         carbstabbutton.setBackgroundColor(offColor);

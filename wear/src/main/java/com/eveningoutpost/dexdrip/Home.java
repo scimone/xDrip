@@ -235,18 +235,18 @@ public class Home extends BaseWatchFace {
                 if (ageLevel == 1) {
                     mTimestamp.setTextColor(Color.WHITE);
                 } else {
-                    mTimestamp.setTextColor(Color.RED);
+                    mTimestamp.setTextColor(Color.parseColor("#D55F4F"));
                 }
 
                 if (batteryLevel == 1) {
                     mUploaderBattery.setTextColor(Color.WHITE);
                 } else {
-                    mUploaderBattery.setTextColor(Color.RED);
+                    mUploaderBattery.setTextColor(Color.parseColor("#D55F4F"));
                 }
                 if (mXBatteryLevel == 1) {
                     mUploaderXBattery.setTextColor(Color.WHITE);
                 } else {
-                    mUploaderXBattery.setTextColor(Color.RED);
+                    mUploaderXBattery.setTextColor(Color.parseColor("#D55F4F"));
                 }
 
                 mStatus.setTextColor(Color.WHITE);

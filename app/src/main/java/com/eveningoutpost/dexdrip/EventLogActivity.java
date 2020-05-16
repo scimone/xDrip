@@ -540,7 +540,7 @@ public class EventLogActivity extends BaseAppCompatActivity {
                 case 2:
                     return Color.DKGRAY;
                 case 3:
-                    return Color.RED;
+                    return Color.parseColor("#D55F4F");
                 case 4:
                     return Color.DKGRAY;
                 case 5:

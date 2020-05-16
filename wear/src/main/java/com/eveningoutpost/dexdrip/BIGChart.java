@@ -75,7 +75,7 @@ public class BIGChart extends WatchFace implements SharedPreferences.OnSharedPre
     public int batteryLevel = 1;
     public int ageLevel = 1;
     public int highColor = Color.parseColor("#C68362");
-    public int lowColor = Color.RED;
+    public int lowColor = Color.parseColor("#D55F4F");
     public int midColor = Color.WHITE;
     public int pointSize = 2;
     public boolean lowResMode = false;
@@ -616,7 +616,7 @@ public class BIGChart extends WatchFace implements SharedPreferences.OnSharedPre
     protected void updateRainbow() {
         animationAngle = (animationAngle + 1) % 360;
         //Animation matrix:
-        int[] rainbow = {Color.RED, Color.parseColor("#C68362"), Color.GREEN, Color.BLUE
+        int[] rainbow = {Color.parseColor("#D55F4F"), Color.parseColor("#C68362"), Color.GREEN, Color.BLUE
                 , Color.CYAN};
         Shader shader = new LinearGradient(0, 0, 0, 20, rainbow,
                 null, Shader.TileMode.MIRROR);

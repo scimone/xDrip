@@ -195,7 +195,7 @@ public class CalibrationGraph extends ActivityWithMenu {
 
             // actual raw
             Line lineb = new Line(valuesb);
-            lineb.setColor(Color.RED);
+            lineb.setColor(Color.parseColor("#D55F4F"));
             lineb.setHasLines(false);
             lineb.setPointRadius(1);
             lineb.setHasPoints(true);
