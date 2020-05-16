@@ -2391,7 +2391,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                     if ((BgGraphBuilder.previous_low_occurs_at > 0) && ((previous_predicted_low_in_mins + 5) < predicted_low_in_mins)) {
                         lowPredictText.setTextColor(Color.GREEN); // low front is getting further away
                     } else {
-                        lowPredictText.setTextColor(Color.YELLOW); // low front is getting nearer!
+                        lowPredictText.setTextColor(Color.parseColor("#C68362")); // low front is getting nearer!
                     }
                 }
                 lowPredictText.setVisibility(View.VISIBLE);
@@ -2720,7 +2720,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                     dexbridgeBattery.setText("Bridge battery" + ": " + bridgeBattery + ((bridgeBattery < 200) ? "%" : "mV"));
                 }
             }
-            if (bridgeBattery < 50) dexbridgeBattery.setTextColor(Color.YELLOW);
+            if (bridgeBattery < 50) dexbridgeBattery.setTextColor(Color.parseColor("#C68362"));
             if (bridgeBattery < 25) dexbridgeBattery.setTextColor(Color.RED);
             else dexbridgeBattery.setTextColor(Color.GREEN);
             dexbridgeBattery.setVisibility(View.VISIBLE);
@@ -2738,7 +2738,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                     if (bridgeBattery < 40) {
                         parakeetBattery.setTextColor(Color.RED);
                     } else {
-                        parakeetBattery.setTextColor(Color.YELLOW);
+                        parakeetBattery.setTextColor(Color.parseColor("#C68362"));
                     }
                     parakeetBattery.setVisibility(View.VISIBLE);
                 } else {
@@ -2770,7 +2770,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             }
             sensorAge.setVisibility(View.VISIBLE);
             if (sensor_age < 1440) {
-                sensorAge.setTextColor(Color.YELLOW);
+                sensorAge.setTextColor(Color.parseColor("#C68362"));
             } else if (sensor_age < (1440 * 12)) {
                 sensorAge.setTextColor(Color.GREEN);
             } else {

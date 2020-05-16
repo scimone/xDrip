@@ -397,7 +397,7 @@ public class CircleWatchface extends WatchFace implements SharedPreferences.OnSh
 
         if (isAnimated()) {
             //Animation matrix:
-            int[] rainbow = {Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE
+            int[] rainbow = {Color.RED, Color.parseColor("#C68362"), Color.GREEN, Color.BLUE
                     , Color.CYAN};
             Shader shader = new LinearGradient(0, 0, 0, 20, rainbow,
                     null, Shader.TileMode.MIRROR);

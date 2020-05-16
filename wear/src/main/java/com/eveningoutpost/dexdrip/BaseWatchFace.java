@@ -79,7 +79,7 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
     public boolean mShowXBattery = false;
     String[] smallFontsizeArray;// = getResources().getStringArray(R.array.toggle_fontsize);
     public int ageLevel = 1;
-    public int highColor = Color.YELLOW;
+    public int highColor = Color.parseColor("#C68362");
     public int lowColor = Color.RED;
     public int midColor = Color.WHITE;
     public boolean lowResMode = false;

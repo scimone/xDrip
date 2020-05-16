@@ -71,7 +71,7 @@ public class ChartView extends View {
             canvas.drawArc(rect, -90, lowDeg, true, myPaint);
             myPaint.setColor(Color.GREEN);
             canvas.drawArc(rect, -90 + lowDeg, inDeg, true, myPaint);
-            myPaint.setColor(Color.YELLOW);
+            myPaint.setColor(Color.parseColor("#C68362"));
             canvas.drawArc(rect, -90 + lowDeg + inDeg, highDeg, true, myPaint);
         }
 

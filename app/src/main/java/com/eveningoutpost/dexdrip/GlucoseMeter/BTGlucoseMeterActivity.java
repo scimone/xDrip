@@ -369,7 +369,7 @@ public class BTGlucoseMeterActivity extends ListActivityWithMenu {
 
             boolean is_bonded = device.pairstate == BluetoothDevice.BOND_BONDED;
             if (is_bonded) {
-                viewHolder.deviceAddress.setTextColor(Color.YELLOW);
+                viewHolder.deviceAddress.setTextColor(Color.parseColor("#C68362"));
             } else {
                 viewHolder.deviceAddress.setTextColor(Color.WHITE);
             }
