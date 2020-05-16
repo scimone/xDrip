@@ -2039,6 +2039,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     public void setViewport() {
         if (tempViewport.left == 0.0 || holdViewport.left == 0.0 || holdViewport.right >= (new Date().getTime())) {
             previewChart.setCurrentViewport(bgGraphBuilder.advanceViewport(chart, previewChart, hours));
+            previewChart.setPreviewColor(Color.parseColor("#69655F"));
         } else {
             previewChart.setCurrentViewport(holdViewport);
         }
