@@ -158,9 +158,9 @@ public class LargeHome extends BaseWatchFace {
             mRelativeLayout.setBackgroundColor(Color.BLACK);
             mLinearLayout.setBackgroundColor(Color.LTGRAY);
             if (sgvLevel == 1) {
-                mSgv.setTextColor(Color.YELLOW);
-                mDirection.setTextColor(Color.YELLOW);
-                mDelta.setTextColor(Color.YELLOW);
+                mSgv.setTextColor(getResources().getColor(R.color.light_highColor));
+                mDirection.setTextColor(getResources().getColor(R.color.light_highColor));
+                mDelta.setTextColor(getResources().getColor(R.color.light_highColor));
             } else if (sgvLevel == 0) {
                 mSgv.setTextColor(Color.WHITE);
                 mDirection.setTextColor(Color.WHITE);
