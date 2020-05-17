@@ -1539,7 +1539,7 @@ public class BgGraphBuilder {
                         if (treatment.insulin > 0)
                             height = treatment.insulin; // some scaling needed I think
                         if (height > highMark) height = highMark;
-                        if (height < lowMark) height = lowMark;
+                        //if (height < lowMark) height = lowMark;
 
                         final PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
                         String mylabel = "";
