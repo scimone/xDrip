@@ -620,6 +620,9 @@ public class BgGraphBuilder {
             if (lline.getColor() == getCol(X.color_heart_rate1)) {
                 lline.setStrokeWidth(2);
             }
+            if (lline.getColor() == getCol(X.color_step_counter1) || lline.getColor() == getCol(X.color_step_counter2)) {
+                lline.setStrokeWidth(lline.getStrokeWidth()/3);
+            }
         }
 
         for (Line item : removeItems) {
