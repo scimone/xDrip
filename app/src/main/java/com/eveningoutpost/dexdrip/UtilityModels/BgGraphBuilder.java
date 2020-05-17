@@ -604,7 +604,7 @@ public class BgGraphBuilder {
         }
         for (Line lline : previewLineData.getLines()) {
             if (((lline.getPointRadius() == pluginSize) && (lline.getPointColor() == getCol(X.color_secondary_glucose_value)))
-                    || ((lline.getColor() == getCol(X.color_treatment_dot_foreground) || (lline.getColor() == getCol(X.color_treatment_dot_background) || (lline.getColor() == getCol(X.color_treatment) || (lline.getColor() == getCol(X.color_smb_line) || (lline.getColor() == getCol(X.color_smb_icon) || (lline.getColor() == getCol(X.color_basal_tbr))))))))) {
+                    || ((lline.getColor() == getCol(X.color_treatment_dot_foreground) || (lline.getColor() == getCol(X.color_treatment_dot_background) || (lline.getColor() == getCol(X.color_treatment) || (lline.getColor() == getCol(X.color_smb_line) || (lline.getColor() == getCol(X.color_smb_icon) || (lline.getColor() == getCol(X.color_high_mark) || (lline.getColor() == getCol(X.color_low_mark) || (lline.getColor() == getCol(X.color_basal_tbr))))))))))) {
                 removeItems.add(lline); // remove plugin or step counter plot from preview graph
             }
 
@@ -1890,7 +1890,7 @@ public class BgGraphBuilder {
         Line highLine = new Line(highLineValues);
         highLine.setHasPoints(false);
         highLine.setStrokeWidth(1);
-        highLine.setColor(getCol(X.color_high_values));
+        highLine.setColor(getCol(X.color_high_mark));
         highLine.setAreaTransparency(50);
         highLine.setFilled(true);
         highLine.setFillFlipped(true);
@@ -1915,7 +1915,7 @@ public class BgGraphBuilder {
         Line lowLine = new Line(lowLineValues);
         lowLine.setHasPoints(false);
         lowLine.setAreaTransparency(50);
-        lowLine.setColor(getCol(X.color_low_values));
+        lowLine.setColor(getCol(X.color_low_mark));
         lowLine.setStrokeWidth(1);
         lowLine.setFilled(true);
         return lowLine;
