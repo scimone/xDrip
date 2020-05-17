@@ -1537,8 +1537,8 @@ public class BgGraphBuilder {
 
                         double height = 6 * bgScale;
                         if (treatment.insulin > 0)
-                            height = 175; // some scaling needed I think
-                        if (height > highMark) height = highMark;
+                            height = 244; // some scaling needed I think
+                        //if (height > highMark) height = highMark;
                         //if (height < lowMark) height = lowMark;
 
                         final PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
