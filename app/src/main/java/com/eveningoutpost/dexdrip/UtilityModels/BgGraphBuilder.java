@@ -616,8 +616,8 @@ public class BgGraphBuilder {
                 lline.setPointRadius(unlabledLinesSize);
             }
             lline.setHasLabels(false);
-            
-            if (lline.getColor() == getCol(X.color_treatment_dark)) {
+
+            if (lline.getColor() == getCol(X.color_heart_rate1)) {
                 lline.setStrokeWidth(1);
             }
         }
