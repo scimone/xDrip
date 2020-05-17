@@ -618,7 +618,7 @@ public class BgGraphBuilder {
             lline.setHasLabels(false);
 
             if (lline.getColor() == getCol(X.color_heart_rate1)) {
-                lline.setStrokeWidth(1);
+                lline.setStrokeWidth(2);
             }
         }
 
