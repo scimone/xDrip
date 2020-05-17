@@ -54,6 +54,22 @@
                         app:colorpicker_showHex="false" />
 
                     <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
+                        android:defaultValue="#C30909"
+                        android:key="color_low_mark"
+                        android:title="@string/low_mark"
+                        app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"
+                        app:colorpicker_selectNoneButtonText="@string/revert_to_default"
+                        app:colorpicker_showHex="false" />
+
+                    <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
+                        android:defaultValue="#C30909"
+                        android:key="color_high_mark"
+                        android:title="@string/high_mark"
+                        app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"
+                        app:colorpicker_selectNoneButtonText="@string/revert_to_default"
+                        app:colorpicker_showHex="false" />
+
+                    <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
                         android:defaultValue="#a0a0a0"
                         android:key="color_filtered"
                         android:title="@string/filtered_values"
