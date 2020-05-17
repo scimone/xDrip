@@ -502,6 +502,7 @@
                     android:layout_marginBottom="10dp"
                     android:background="@android:color/transparent"
                     android:drawableTop="@drawable/ic_heart_pulse_grey600_24dp"
+                    android:tint="@android:color/transparent"
                     android:gravity="center_horizontal|center_vertical"
                     android:onClick="toggleStepsVisibility"
                     android:paddingEnd="4dp"
@@ -509,7 +510,6 @@
                     android:text="123"
                     android:textColor="@android:color/transparent"
                     android:textSize="10sp"
-                    android:tint="@android:color/transparent"
                     android:visibility="invisible" />
 
                 <Button
@@ -523,6 +523,7 @@
                     android:layout_marginRight="0dp"
                     android:background="@android:color/transparent"
                     android:drawableTop="@drawable/ic_walk_grey600_24dp"
+                    android:tint="@android:color/transparent"
                     android:gravity="center_horizontal|center_vertical"
                     android:onClick="toggleStepsVisibility"
                     android:paddingStart="0dp"
@@ -532,7 +533,6 @@
                     android:text="99999"
                     android:textSize="10sp"
                     android:textColor="@android:color/transparent"
-                    android:tint="@android:color/transparent"
                     tools:visibility="invisible" />
 
 
