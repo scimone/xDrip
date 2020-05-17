@@ -604,7 +604,7 @@ public class BgGraphBuilder {
         }
         for (Line lline : previewLineData.getLines()) {
             if (((lline.getPointRadius() == pluginSize) && (lline.getPointColor() == getCol(X.color_secondary_glucose_value)))
-                    || ((lline.getColor() == getCol(X.color_treatment_dot_foreground) || (lline.getColor() == getCol(X.color_treatment_dot_background) || (lline.getColor() == getCol(X.color_treatment_dark) || (lline.getColor() == getCol(X.color_treatment) || (lline.getColor() == getCol(X.color_basal_tbr) || (lline.getColor() == getCol(X.color_step_counter1) || (lline.getColor() == getCol(X.color_step_counter2) || (lline.getColor()== getCol(X.color_heart_rate1))))))))))) {
+                    || ((lline.getColor() == getCol(X.color_treatment_dot_foreground) || (lline.getColor() == getCol(X.color_treatment_dot_background) || (lline.getColor() == getCol(X.color_treatment) || (lline.getColor() == getCol(X.color_basal_tbr) || (lline.getColor() == getCol(X.color_step_counter1) || (lline.getColor() == getCol(X.color_step_counter2))))))))) {
                 removeItems.add(lline); // remove plugin or step counter plot from preview graph
             }
 
@@ -956,7 +956,7 @@ public class BgGraphBuilder {
             lines[3].setHasLines(true);
             lines[3].setCubic(false);
             lines[3].setFilled(true);
-            lines[3].setAreaTransparency(35);
+            lines[3].setAreaTransparency(50);
             lines[3].setFilled(true);
             lines[3].setPointRadius(1);
             //lines[3].setHasPoints(true);
