@@ -1641,7 +1641,7 @@ public class BgGraphBuilder {
                     }
 
                     final double iobscale = 1 * bgScale;
-                    final double cobscale = 0.1 * bgScale;
+                    final double cobscale = 0.2 * bgScale;
                     final double initial_predicted_bg = predictedbg;
                     final double relaxed_predicted_bg_limit = initial_predicted_bg * 1.20;
                     final double cob_insulin_max_draw_value = highMark * 1.20;
