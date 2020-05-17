@@ -501,8 +501,6 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="10dp"
                     android:background="@android:color/transparent"
-                    android:drawableTop="@drawable/ic_heart_pulse_grey600_24dp"
-                    android:tint="#000000"
                     android:gravity="center_horizontal|center_vertical"
                     android:onClick="toggleStepsVisibility"
                     android:paddingEnd="4dp"
@@ -510,7 +508,8 @@
                     android:text="123"
                     android:textColor="@android:color/transparent"
                     android:textSize="10sp"
-                    android:visibility="invisible" />
+                    android:tint="#000000"
+                    android:visibility="visible" />
 
                 <Button
                     android:id="@+id/walkButton"
@@ -522,8 +521,6 @@
                     android:layout_marginTop="0dp"
                     android:layout_marginRight="0dp"
                     android:background="@android:color/transparent"
-                    android:drawableTop="@drawable/ic_walk_grey600_24dp"
-                    android:tint="#000000"
                     android:gravity="center_horizontal|center_vertical"
                     android:onClick="toggleStepsVisibility"
                     android:paddingStart="0dp"
@@ -531,9 +528,10 @@
                     android:paddingEnd="0dp"
                     android:paddingBottom="0dp"
                     android:text="99999"
-                    android:textSize="10sp"
                     android:textColor="@android:color/transparent"
-                    tools:visibility="invisible" />
+                    android:textSize="10sp"
+                    android:tint="#000000"
+                    tools:visibility="visible" />
 
 
             </RelativeLayout>
