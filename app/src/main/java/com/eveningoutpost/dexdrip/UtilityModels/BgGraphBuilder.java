@@ -614,6 +614,8 @@ public class BgGraphBuilder {
                 lline.setPointColor(Color.parseColor("#69655F"));
             } else if (lline.getPointRadius() > 0) {
                 lline.setPointRadius(unlabledLinesSize);
+            } else if (lline.getStrokeWidth() > 0) {
+                lline.setStrokeWidth(unlabledLinesSize);
             }
             lline.setHasLabels(false);
         }
