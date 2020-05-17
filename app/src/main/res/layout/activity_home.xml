@@ -108,7 +108,7 @@
                         android:paddingTop="0dp"
                         android:paddingEnd="20dp"
                         android:text="13.3"
-                        android:textColor="#69655F"
+                        android:textColor="#908B84"
                         android:textSize="50sp" />
 
                     <ImageView
@@ -507,7 +507,9 @@
                     android:paddingEnd="4dp"
                     android:paddingBottom="2dp"
                     android:text="123"
+                    android:textColor='"@android:color/transparent"'
                     android:textSize="10sp"
+                    android:tint="@android:color/transparent"
                     android:visibility="invisible" />
 
                 <Button
@@ -529,6 +531,8 @@
                     android:paddingBottom="0dp"
                     android:text="99999"
                     android:textSize="10sp"
+                    android:textColor='"@android:color/transparent"'
+                    android:tint="@android:color/transparent"
                     tools:visibility="invisible" />
 
 
