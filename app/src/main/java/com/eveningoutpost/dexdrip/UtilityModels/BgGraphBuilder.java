@@ -1538,6 +1538,8 @@ public class BgGraphBuilder {
                         double height = 6 * bgScale;
                         if (treatment.insulin > 0)
                             height = 244; // some scaling needed I think
+                        if (treatment.carbs > 0)
+                            height = 6;
                         //if (height > highMark) height = highMark;
                         //if (height < lowMark) height = lowMark;
 
