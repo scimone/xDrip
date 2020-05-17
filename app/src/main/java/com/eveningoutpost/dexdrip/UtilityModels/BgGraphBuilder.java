@@ -953,10 +953,10 @@ public class BgGraphBuilder {
             // iactivity on board
             lines[3] = new Line(activityValues);
             lines[3].setColor(getCol(X.color_treatment_dark));
-            lines[3].setHasLines(false);
+            lines[3].setHasLines(true);
             lines[3].setCubic(false);
             lines[3].setFilled(true);
-            lines[3].setAreaTransparency(65);
+            lines[3].setAreaTransparency(35);
             lines[3].setFilled(true);
             lines[3].setPointRadius(1);
             //lines[3].setHasPoints(true);
@@ -2065,7 +2065,7 @@ public class BgGraphBuilder {
         xAxis.setHasLines(prefs.getBoolean("show_graph_grid_time", true));
         xAxis.setLineColor(Color.parseColor("#212121"));
         xAxis.setTextSize(axisTextSize);
-        xAxis.setTextColor(Color.parseColor("#212121"));
+        xAxis.setTextColor(Color.parseColor("#42403C"));
         return xAxis;
     }
 
