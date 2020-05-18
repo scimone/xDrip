@@ -1547,9 +1547,8 @@ public class BgGraphBuilder {
                         if (treatment.insulin > 0) {
                             total_height = Float.valueOf(JoH.qs(treatment.insulin, 2));
                             total_height_rounded = Math.ceil(total_height);
-                            for (i = 0; i <= (int) (total_height_rounded * 6); i = i + 6) {
+                            for (i = 0; i < (int) (total_height_rounded * 6); i += 6) {
                                 height = i + 3;
-                                //pv.set(treatment.timestamp / FUZZER, (float) height);
                                 treatmentValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
                             }
                         }
@@ -1557,9 +1556,8 @@ public class BgGraphBuilder {
                         if (treatment.carbs > 0) {
                             total_height = Float.valueOf(JoH.qs(treatment.carbs, 2))/10;
                             total_height_rounded = Math.ceil(total_height);
-                            for (i = 250; i >= (int) (250-total_height_rounded * 6); i = i - 6) {
+                            for (i = 250; i > (int) (250-total_height_rounded * 6); i -= 6) {
                                 height = i - 3;
-                                //pv.set(treatment.timestamp / FUZZER, (float) height);
                                 treatmentValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
                             }
                         }
