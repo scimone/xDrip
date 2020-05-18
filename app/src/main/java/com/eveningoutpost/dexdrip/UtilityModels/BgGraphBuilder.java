@@ -1912,7 +1912,7 @@ public class BgGraphBuilder {
         highLine.setHasPoints(false);
         highLine.setStrokeWidth(1);
         highLine.setColor(getCol(X.color_high_mark));
-        highLine.setAreaTransparency(50);
+        highLine.setAreaTransparency(70);
         highLine.setFilled(true);
         highLine.setFillFlipped(true);
         return highLine;
@@ -1935,7 +1935,7 @@ public class BgGraphBuilder {
         lowLineValues.add(new PointValue((float) end_time, (float) lowMark));
         Line lowLine = new Line(lowLineValues);
         lowLine.setHasPoints(false);
-        lowLine.setAreaTransparency(50);
+        lowLine.setAreaTransparency(70);
         lowLine.setColor(getCol(X.color_low_mark));
         lowLine.setStrokeWidth(1);
         lowLine.setFilled(true);
