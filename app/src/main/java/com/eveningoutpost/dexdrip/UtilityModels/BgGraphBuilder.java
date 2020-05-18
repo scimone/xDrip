@@ -395,7 +395,7 @@ public class BgGraphBuilder {
             final boolean d = false;
             if (d) Log.d(TAG, "Delta: pmlist size: " + pmlist.size());
             final float yscale = doMgdl ? (float) Constants.MMOLL_TO_MGDL : 1f;
-            final float ypos = 6 * yscale; // TODO Configurable
+            final float ypos = 70; // TODO Configurable
             //final long last_timestamp = pmlist.get(pmlist.size() - 1).timestamp;
             final float MAX_SIZE = 50;
             int flipper = 0;
