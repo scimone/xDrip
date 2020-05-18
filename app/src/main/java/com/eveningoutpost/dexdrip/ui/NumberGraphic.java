@@ -83,7 +83,7 @@ public class NumberGraphic {
     }
 
     public static Bitmap getSmallIconBitmap(final String text) {
-        return getBitmap(text, Color.parseColor("#69655F"), null);
+        return getBitmap(text, Color.parseColor("#908B84"), null);
     }
 
     public static Bitmap getLargeIconBitmap(final String text) {

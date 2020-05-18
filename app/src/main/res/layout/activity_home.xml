@@ -202,7 +202,7 @@
                     android:paddingRight="4dp"
                     android:paddingBottom="1dp"
                     android:src="@drawable/ic_eyedropper_variant_grey600_24dp"
-                    android:tint="#69655F" />
+                    android:tint="#908B84" />
 
                 <ImageButton
                     android:id="@+id/btnNote"
@@ -221,7 +221,7 @@
                     android:paddingRight="6dp"
                     android:paddingBottom="2dp"
                     android:src="@drawable/ic_note_plus_grey600_24dp"
-                    android:tint="#69655F" />
+                    android:tint="#908B84" />
 
 
                 <ImageButton
@@ -240,7 +240,7 @@
                     android:paddingRight="3dp"
                     android:paddingBottom="3dp"
                     android:src="@drawable/ic_undo_variant_grey600_24dp"
-                    android:tint="#69655F" />
+                    android:tint="#908B84" />
 
 
                 <ImageButton
@@ -258,7 +258,7 @@
                     android:paddingRight="3dp"
                     android:paddingBottom="1dp"
                     android:src="@drawable/ic_redo_variant_grey600_24dp"
-                    android:tint="#69655F" />
+                    android:tint="#908B84" />
 
 
                 <TextView

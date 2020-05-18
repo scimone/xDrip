@@ -180,7 +180,7 @@ public class xDripWidget extends AppWidgetProvider {
                 if (timeAgo > 15) {
                     views.setTextColor(R.id.readingAge, Color.parseColor("#FFBB33"));
                 } else {
-                    views.setTextColor(R.id.readingAge, Color.parseColor("#69655F"));
+                    views.setTextColor(R.id.readingAge, Color.parseColor("#908B84"));
                 }
 
                 if(showExstraStatus) {
@@ -199,9 +199,9 @@ public class xDripWidget extends AppWidgetProvider {
                     views.setTextColor(R.id.widgetDelta, Color.parseColor("#FFBB33"));
                     views.setTextColor(R.id.widgetArrow, Color.parseColor("#FFBB33"));
                 } else {
-                    views.setTextColor(R.id.widgetBg, Color.parseColor("#69655F"));
-                    views.setTextColor(R.id.widgetDelta, Color.parseColor("#69655F"));
-                    views.setTextColor(R.id.widgetArrow, Color.parseColor("#69655F"));
+                    views.setTextColor(R.id.widgetBg, Color.parseColor("#908B84"));
+                    views.setTextColor(R.id.widgetDelta, Color.parseColor("#908B84"));
+                    views.setTextColor(R.id.widgetArrow, Color.parseColor("#908B84"));
                 }
             } catch (RuntimeException e) {
                 Log.e(TAG, "Got exception in displaycurrentinfo: " + e);

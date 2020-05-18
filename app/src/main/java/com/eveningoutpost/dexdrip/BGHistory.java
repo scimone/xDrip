@@ -164,7 +164,7 @@ public class BGHistory extends ActivityWithMenu {
         previewChart.setViewportCalculationEnabled(true);
         chart.setViewportCalculationEnabled(true);
         previewChart.setViewportChangeListener(new ViewportListener());
-        previewChart.setPreviewColor(Color.parseColor("#69655F"));
+        previewChart.setPreviewColor(Color.parseColor("#908B84"));
         chart.setViewportChangeListener(new ChartViewPortListener());
 
         setupStatistics(date1.getTimeInMillis(), endDate.getTimeInMillis());

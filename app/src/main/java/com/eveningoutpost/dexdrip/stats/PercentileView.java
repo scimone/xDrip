@@ -98,7 +98,7 @@ public class PercentileView extends View {
             Log.d("DrawStats", "PercentileView - onDraw if");
 
             Paint myPaint = new Paint();
-            myPaint.setColor(Color.parseColor("#69655F"));
+            myPaint.setColor(Color.parseColor("#908B84"));
             myPaint.setAntiAlias(true);
             myPaint.setStyle(Paint.Style.STROKE);
             myPaint.setTextSize(dp2px(15));

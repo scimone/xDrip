@@ -2039,7 +2039,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     public void setViewport() {
         if (tempViewport.left == 0.0 || holdViewport.left == 0.0 || holdViewport.right >= (new Date().getTime())) {
             previewChart.setCurrentViewport(bgGraphBuilder.advanceViewport(chart, previewChart, hours));
-            previewChart.setPreviewColor(Color.parseColor("#69655F"));
+            previewChart.setPreviewColor(Color.parseColor("#908B84"));
         } else {
             previewChart.setCurrentViewport(holdViewport);
         }
@@ -2854,7 +2854,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         } else {
             // not stale
             if (notificationText.getText().length() == 0) {
-                notificationText.setTextColor(Color.parseColor("#69655F"));
+                notificationText.setTextColor(Color.parseColor("#908B84"));
             }
             boolean bg_from_filtered = Pref.getBoolean("bg_from_filtered", false);
             if (!predictive) {
@@ -2945,7 +2945,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         } else if (bgGraphBuilder.unitized(estimate) >= bgGraphBuilder.highMark) {
             currentBgValueText.setTextColor(Color.parseColor("#FFBB33"));
         } else {
-            currentBgValueText.setTextColor(Color.parseColor("#69655F"));
+            currentBgValueText.setTextColor(Color.parseColor("#908B84"));
         }
 
         // TODO this should be made more efficient probably

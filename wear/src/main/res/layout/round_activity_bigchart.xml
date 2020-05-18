@@ -116,7 +116,7 @@
                 android:text="---"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#69655F"
+                android:textColor="#908B84"
                 android:layout_gravity="bottom"
                 android:gravity="center_horizontal|bottom"
                 android:layout_marginRight="5dp" />
@@ -128,7 +128,7 @@
                 android:text="---"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#69655F"
+                android:textColor="#908B84"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal" />
 
@@ -148,7 +148,7 @@
             android:text="E xU/h  IOB: x (x+x)"
             android:layout_width="wrap_content"
             android:textAlignment="center"
-            android:textColor="#69655F"
+            android:textColor="#908B84"
             android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"/>
 
@@ -163,7 +163,7 @@
                 android:id="@+id/watch_date"
                 android:textSize="14sp"
                 android:text="ddd mm/dd"
-                android:textColor="#69655F"
+                android:textColor="#908B84"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="false"
@@ -174,7 +174,7 @@
                 android:id="@+id/watch_time"
                 android:textSize="30sp"
                 android:text="12:00"
-                android:textColor="#69655F"
+                android:textColor="#908B84"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -187,7 +187,7 @@
                 android:text="-- '"
                 android:layout_width="wrap_content"
                 android:textAlignment="center"
-                android:textColor="#69655F"
+                android:textColor="#908B84"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content" />
         </LinearLayout>

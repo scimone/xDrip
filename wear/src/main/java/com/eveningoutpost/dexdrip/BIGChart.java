@@ -76,7 +76,7 @@ public class BIGChart extends WatchFace implements SharedPreferences.OnSharedPre
     public int ageLevel = 1;
     public int highColor = Color.parseColor("#C68362");
     public int lowColor = Color.parseColor("#D55F4F");
-    public int midColor = Color.parseColor("#69655F");
+    public int midColor = Color.parseColor("#908B84");
     public int pointSize = 2;
     public boolean lowResMode = false;
     public boolean layoutSet = false;

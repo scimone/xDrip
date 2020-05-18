@@ -136,22 +136,22 @@ public class LargeHome extends BaseWatchFace {
             }
 
             if (ageLevel == 1) {
-                mTimestamp.setTextColor(Color.parseColor("#69655F"));
+                mTimestamp.setTextColor(Color.parseColor("#908B84"));
             } else {
                 mTimestamp.setTextColor(Color.parseColor("#D55F4F"));
             }
 
             if (batteryLevel == 1) {
-                mUploaderBattery.setTextColor(Color.parseColor("#69655F"));
+                mUploaderBattery.setTextColor(Color.parseColor("#908B84"));
             } else {
                 mUploaderBattery.setTextColor(Color.parseColor("#D55F4F"));
             }
             if (batteryLevel == 1) {
-                mUploaderXBattery.setTextColor(Color.parseColor("#69655F"));
+                mUploaderXBattery.setTextColor(Color.parseColor("#908B84"));
             } else {
                 mUploaderXBattery.setTextColor(Color.parseColor("#D55F4F"));
             }
-            mStatus.setTextColor(Color.parseColor("#69655F"));
+            mStatus.setTextColor(Color.parseColor("#908B84"));
             mTime.setTextColor(Color.BLACK);
             mDate.setTextColor(Color.BLACK);
         } else {
@@ -162,9 +162,9 @@ public class LargeHome extends BaseWatchFace {
                 mDirection.setTextColor(getResources().getColor(R.color.light_highColor));
                 mDelta.setTextColor(getResources().getColor(R.color.light_highColor));
             } else if (sgvLevel == 0) {
-                mSgv.setTextColor(Color.parseColor("#69655F"));
-                mDirection.setTextColor(Color.parseColor("#69655F"));
-                mDelta.setTextColor(Color.parseColor("#69655F"));
+                mSgv.setTextColor(Color.parseColor("#908B84"));
+                mDirection.setTextColor(Color.parseColor("#908B84"));
+                mDelta.setTextColor(Color.parseColor("#908B84"));
             } else if (sgvLevel == -1) {
                 mSgv.setTextColor(Color.parseColor("#D55F4F"));
                 mDirection.setTextColor(Color.parseColor("#D55F4F"));
@@ -174,8 +174,8 @@ public class LargeHome extends BaseWatchFace {
             mUploaderBattery.setTextColor(Color.BLACK);
             mTimestamp.setTextColor(Color.BLACK);
             mStatus.setTextColor(Color.BLACK);
-            mTime.setTextColor(Color.parseColor("#69655F"));
-            mDate.setTextColor(Color.parseColor("#69655F"));
+            mTime.setTextColor(Color.parseColor("#908B84"));
+            mDate.setTextColor(Color.parseColor("#908B84"));
         }
     }
 

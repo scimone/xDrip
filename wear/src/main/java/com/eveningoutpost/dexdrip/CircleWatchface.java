@@ -493,14 +493,14 @@ public class CircleWatchface extends WatchFace implements SharedPreferences.OnSh
         if (sharedPrefs.getBoolean("dark", false)) {
             return Color.BLACK;
         } else {
-            return Color.parseColor("#69655F");
+            return Color.parseColor("#908B84");
 
         }
     }
 
     public int getTextColor() {
         if (sharedPrefs.getBoolean("dark", false)) {
-            return Color.parseColor("#69655F");
+            return Color.parseColor("#908B84");
         } else {
             return Color.BLACK;
 

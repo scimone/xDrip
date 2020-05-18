@@ -1138,7 +1138,7 @@ public class JoH {
         final Canvas canvas = new Canvas(bitmap);
         if (Pref.getBooleanDefaultFalse(SHOW_STATISTICS_PRINT_COLOR)) {
             Paint paint = new Paint();
-            paint.setColor(Color.parseColor("#69655F"));
+            paint.setColor(Color.parseColor("#908B84"));
             paint.setStyle(Paint.Style.FILL);
             canvas.drawRect(0, 0, width, height, paint);
         }
@@ -1156,7 +1156,7 @@ public class JoH {
 
             Paint paint = new Paint();
             if (Pref.getBooleanDefaultFalse(SHOW_STATISTICS_PRINT_COLOR)) {
-                paint.setColor(Color.parseColor("#69655F"));
+                paint.setColor(Color.parseColor("#908B84"));
                 paint.setStyle(Paint.Style.FILL);
                 canvasf.drawRect(0, 0, width, offset, paint);
                 paint.setColor(Color.BLACK);

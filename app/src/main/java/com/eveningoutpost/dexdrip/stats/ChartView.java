@@ -36,7 +36,7 @@ public class ChartView extends View {
             Log.d("DrawStats", "ChartView - onDraw if");
 
             Paint myPaint = new Paint();
-            myPaint.setColor(Color.parseColor("#69655F"));
+            myPaint.setColor(Color.parseColor("#908B84"));
             myPaint.setAntiAlias(true);
             myPaint.setStyle(Paint.Style.STROKE);
             myPaint.setTextSize(dp2px(15));
@@ -46,7 +46,7 @@ public class ChartView extends View {
 
             if ((rd.aboveRange + rd.belowRange + rd.inRange) == 0) {
                 Paint myPaint = new Paint();
-                myPaint.setColor(Color.parseColor("#69655F"));
+                myPaint.setColor(Color.parseColor("#908B84"));
                 myPaint.setAntiAlias(true);
                 myPaint.setStyle(Paint.Style.STROKE);
                 myPaint.setTextSize(dp2px(15));
