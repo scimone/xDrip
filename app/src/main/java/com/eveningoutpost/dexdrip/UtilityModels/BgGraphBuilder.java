@@ -151,6 +151,7 @@ public class BgGraphBuilder {
     private final List<PointValue> bloodTestValues = new ArrayList<PointValue>();
     private final List<PointValue> calibrationValues = new ArrayList<PointValue>();
     private final List<PointValue> treatmentValues = new ArrayList<PointValue>();
+    private final List<PointValue> carbValues = new ArrayList<PointValue>();
     private final List<PointValue> smbValues = new ArrayList<>();
     private final List<PointValue> iconValues = new ArrayList<>();
     private final List<PointValue> iobValues = new ArrayList<PointValue>();
@@ -926,11 +927,12 @@ public class BgGraphBuilder {
         Line[] lines = new Line[9];
         try {
 
-            lines[0] = new Line(treatmentValues);
+            lines[0] = new Line(carbValues);
             lines[0].setColor(getCol(X.color_treatment_dot_background));
             lines[0].setHasLines(false);
-            lines[0].setPointRadius(pointSize * 5 / 2);
+            lines[0].setPointRadius(6);
             lines[0].setHasPoints(true);
+            lines[0].setShape(ValueShape.SQUARE);
 
             lines[1] = new Line(treatmentValues);
             lines[1].setColor(getCol(X.color_treatment_dot_foreground));
@@ -1558,7 +1560,7 @@ public class BgGraphBuilder {
                             total_height_rounded = Math.ceil(total_height);
                             for (i = 250; i > (int) (250-total_height_rounded * 6); i -= 6) {
                                 height = i - 3;
-                                treatmentValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
+                                carbValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
                             }
                         }
 
