@@ -938,7 +938,7 @@ public class BgGraphBuilder {
             lines[1].setPointRadius(6);
             lines[1].setHasPoints(true);
             lines[1].setShape(ValueShape.SQUARE);
-            //lines[1].setHasLabels(true);
+            lines[1].setHasLabels(true);
 
             LineChartValueFormatter formatter = new SimpleLineChartValueFormatter(1);
             lines[1].setFormatter(formatter);
@@ -1541,26 +1541,42 @@ public class BgGraphBuilder {
                         double height=0;
                         float total_height;
                         double total_height_rounded;
+                        String mylabel = "";
                         int i;
                         PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
 
                         if (treatment.insulin > 0) {
                             total_height = Float.valueOf(JoH.qs(treatment.insulin, 2));
                             total_height_rounded = Math.ceil(total_height);
-                            for (i = 0; i <= (int) (total_height_rounded * 6); i = i + 6) {
+                            for (i = 0; i < (int) (total_height_rounded * 6); i = i + 6) {
                                 height = i + 3;
                                 //pv.set(treatment.timestamp / FUZZER, (float) height);
-                                treatmentValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
+                                if (i == (int) (total_height_rounded * 6)) {
+                                    if (mylabel.length() > 0) {
+                                        mylabel = mylabel + System.getProperty("line.separator");
+                                    }
+                                    mylabel = mylabel + (JoH.qs(treatment.carbs, 1) + "g").replace(".0g", "g");
+                                    treatmentValues.add((new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)).setLabel(mylabel)); // hover
+                                } else {
+                                    treatmentValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
+                                }
                             }
                         }
 
                         if (treatment.carbs > 0) {
                             total_height = Float.valueOf(JoH.qs(treatment.carbs, 2))/10;
                             total_height_rounded = Math.ceil(total_height);
-                            for (i = 250; i >= (int) (250-total_height_rounded * 6); i = i - 6) {
+                            for (i = 250; i > (int) (250-total_height_rounded * 6); i = i - 6) {
                                 height = i - 3;
-                                //pv.set(treatment.timestamp / FUZZER, (float) height);
-                                treatmentValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
+                                if (i == (int) (250-total_height_rounded * 6)) {
+                                    if (mylabel.length() > 0) {
+                                        mylabel = mylabel + System.getProperty("line.separator");
+                                    }
+                                    mylabel = mylabel + (JoH.qs(treatment.carbs, 1) + "g").replace(".0g", "g");
+                                    treatmentValues.add((new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)).setLabel(mylabel)); // hover
+                                } else {
+                                    treatmentValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
+                                }
                             }
                         }
 
