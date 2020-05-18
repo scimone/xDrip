@@ -605,7 +605,7 @@ public class BgGraphBuilder {
         }
         for (Line lline : previewLineData.getLines()) {
             if (((lline.getPointRadius() == pluginSize) && (lline.getPointColor() == getCol(X.color_secondary_glucose_value)))
-                    || ((lline.getColor() == getCol(X.color_treatment_dot_foreground) || (lline.getColor() == getCol(X.color_treatment_dot_background) || (lline.getColor() == getCol(X.color_treatment) || (lline.getColor() == getCol(X.color_smb_line) || (lline.getColor() == getCol(X.color_smb_icon) || (lline.getColor() == getCol(X.color_high_mark) || (lline.getColor() == getCol(X.color_low_mark) || (lline.getColor() == getCol(X.color_basal_tbr))))))))))) {
+                    || ((lline.getColor() == getCol(X.color_treatment_dot_foreground) || (lline.getColor() == getCol(X.color_treatment_dot_background) || (lline.getColor() == getCol(X.color_treatment) || (lline.getColor() == getCol(X.color_smb_line) || (lline.getColor() == getCol(X.color_smb_icon) || (lline.getColor() == getCol(X.color_high_mark) || (lline.getColor() == getCol(X.color_low_mark) || (lline.getColor() == getCol(X.color_low_mark_predictive) || (lline.getColor() == getCol(X.color_high_mark_predictive) || (lline.getColor() == getCol(X.color_basal_tbr))))))))))))) {
                 removeItems.add(lline); // remove plugin or step counter plot from preview graph
             }
 
@@ -1925,7 +1925,9 @@ public class BgGraphBuilder {
         Line highLine = new Line(predictiveHighLineValues);
         highLine.setHasPoints(false);
         highLine.setStrokeWidth(1);
-        highLine.setColor(ChartUtils.darkenColor(ChartUtils.darkenColor(ChartUtils.darkenColor(getCol(X.color_high_values)))));
+        highLine.setColor(getCol(X.color_high_mark_predictive));
+        highLine.setFilled(true);
+        highLine.setFillFlipped(true);
         return highLine;
     }
 
@@ -1948,8 +1950,8 @@ public class BgGraphBuilder {
         lowLineValues.add(new PointValue((float) predictive_end_time, (float) lowMark));
         Line lowLine = new Line(lowLineValues);
         lowLine.setHasPoints(false);
-        lowLine.setAreaTransparency(40);
-        lowLine.setColor(ChartUtils.darkenColor(ChartUtils.darkenColor(ChartUtils.darkenColor(getCol(X.color_low_values)))));
+        lowLine.setAreaTransparency(50);
+        lowLine.setColor(getCol(X.color_low_mark_predictive));
         lowLine.setStrokeWidth(1);
         lowLine.setFilled(true);
         return lowLine;
