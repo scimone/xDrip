@@ -965,7 +965,7 @@ public class BgGraphBuilder {
             lines[3].setHasLines(true);
             lines[3].setCubic(false);
             lines[3].setFilled(true);
-            lines[3].setAreaTransparency(50);
+            lines[3].setAreaTransparency(70);
             lines[3].setFilled(true);
             lines[3].setPointRadius(1);
             //lines[3].setHasPoints(true);
