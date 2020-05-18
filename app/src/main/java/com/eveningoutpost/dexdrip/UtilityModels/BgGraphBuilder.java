@@ -938,7 +938,7 @@ public class BgGraphBuilder {
             lines[1].setPointRadius(pointSize * 5 / 4);
             lines[1].setHasPoints(true);
             lines[1].setShape(ValueShape.DIAMOND);
-            lines[1].setHasLabels(true);
+            //lines[1].setHasLabels(true);
 
             LineChartValueFormatter formatter = new SimpleLineChartValueFormatter(1);
             lines[1].setFormatter(formatter);
