@@ -727,7 +727,7 @@ public class BgGraphBuilder {
             if (showSMB) {
                 lines.addAll(smbLines());
             }
-            lines.addAll(iconLines());
+            //lines.addAll(iconLines());
 
             lines.add(calib[0]); // white circle of calib in background
             lines.add(treatments[0]); // white circle of treatment in background
