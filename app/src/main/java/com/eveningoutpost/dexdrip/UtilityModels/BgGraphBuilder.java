@@ -1541,25 +1541,26 @@ public class BgGraphBuilder {
                         double height=0;
                         float total_height;
                         double total_height_rounded;
+                        int i;
                         PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
 
                         if (treatment.insulin > 0) {
                             total_height = Float.valueOf(JoH.qs(treatment.insulin, 2));
-                            total_height_rounded = Math.floor(total_height);
-                            for (int i = 0; i == total_height_rounded * 6; i = i + 6) {
+                            total_height_rounded = Math.ceil(total_height);
+                            for (i = 0; i <= (int) (total_height_rounded * 6); i = i + 6) {
                                 height = i + 3;
-                                pv.set(treatment.timestamp / FUZZER, (float) height);
-                                treatmentValues.add(pv); // hover
+                                //pv.set(treatment.timestamp / FUZZER, (float) height);
+                                treatmentValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
                             }
                         }
 
                         if (treatment.carbs > 0) {
-                            total_height = Float.valueOf(JoH.qs(treatment.carbs, 2));
-                            total_height_rounded = Math.floor(total_height);
-                            for (int i = 250; i == 250-total_height_rounded * 6; i = i - 6) {
+                            total_height = Float.valueOf(JoH.qs(treatment.carbs, 2))/10;
+                            total_height_rounded = Math.ceil(total_height);
+                            for (i = 250; i >= (int) (250-total_height_rounded * 6); i = i - 6) {
                                 height = i - 3;
-                                pv.set(treatment.timestamp / FUZZER, (float) height);
-                                treatmentValues.add(pv); // hover
+                                //pv.set(treatment.timestamp / FUZZER, (float) height);
+                                treatmentValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
                             }
                         }
 
