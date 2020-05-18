@@ -1589,19 +1589,19 @@ public class BgGraphBuilder {
                         } else {
                             pv.note = treatment.getBestShortText();
                         }
-                        if (treatmentValues.size() > 0) { // not sure if this >1 is right really - needs a review
-                            PointValue lastpv = treatmentValues.get(treatmentValues.size() - 1);
-                            if (Math.abs(lastpv.getX() - pv.getX()) < ((10 * 60 * 1000) / FUZZER)) {
-                                // merge label with previous - Intelligent parsing and additions go here
-                                if (d)
-                                    Log.d(TAG, "Merge treatment difference: " + Float.toString(lastpv.getX() - pv.getX()));
-                                String lastlabel = String.valueOf(lastpv.getLabelAsChars());
-                                if (lastlabel.length() > 0) {
-                                    lastpv.setLabel(lastlabel + "+" + mylabel);
-                                    pv.setLabel("");
-                                }
-                            }
-                        }
+//                        if (treatmentValues.size() > 0) { // not sure if this >1 is right really - needs a review
+//                            PointValue lastpv = treatmentValues.get(treatmentValues.size() - 1);
+//                            if (Math.abs(lastpv.getX() - pv.getX()) < ((10 * 60 * 1000) / FUZZER)) {
+//                                // merge label with previous - Intelligent parsing and additions go here
+//                                if (d)
+//                                    Log.d(TAG, "Merge treatment difference: " + Float.toString(lastpv.getX() - pv.getX()));
+//                                String lastlabel = String.valueOf(lastpv.getLabelAsChars());
+//                                if (lastlabel.length() > 0) {
+//                                    lastpv.setLabel(lastlabel + "+" + mylabel);
+//                                    pv.setLabel("");
+//                                }
+//                            }
+//                        }
                         treatmentValues.add(pv); // hover
                         if (d)
                             Log.d(TAG, "Treatment total record: " + Double.toString(height) + " " + " timestamp: " + Long.toString(treatment.timestamp));
