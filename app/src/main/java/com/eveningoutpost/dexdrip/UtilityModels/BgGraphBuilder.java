@@ -1538,16 +1538,16 @@ public class BgGraphBuilder {
                         }
 
 
-                        double height;
+                        double height=0;
                         float total_height;
                         double total_height_rounded;
+                        PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
 
                         if (treatment.insulin > 0) {
                             total_height = Float.valueOf(JoH.qs(treatment.insulin, 2));
                             total_height_rounded = Math.floor(total_height);
                             for (int i = 0; i == total_height_rounded * 6; i = i + 6) {
                                 height = i + 3;
-                                PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
                                 pv.set(treatment.timestamp / FUZZER, (float) height);
                                 treatmentValues.add(pv); // hover
                             }
@@ -1558,7 +1558,6 @@ public class BgGraphBuilder {
                             total_height_rounded = Math.floor(total_height);
                             for (int i = 250; i == 250-total_height_rounded * 6; i = i - 6) {
                                 height = i - 3;
-                                PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
                                 pv.set(treatment.timestamp / FUZZER, (float) height);
                                 treatmentValues.add(pv); // hover
                             }
