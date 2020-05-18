@@ -935,9 +935,9 @@ public class BgGraphBuilder {
             lines[1] = new Line(treatmentValues);
             lines[1].setColor(getCol(X.color_treatment_dot_foreground));
             lines[1].setHasLines(false);
-            lines[1].setPointRadius(pointSize * 5 / 4);
+            lines[1].setPointRadius(6);
             lines[1].setHasPoints(true);
-            lines[1].setShape(ValueShape.DIAMOND);
+            lines[1].setShape(ValueShape.SQUARE);
             //lines[1].setHasLabels(true);
 
             LineChartValueFormatter formatter = new SimpleLineChartValueFormatter(1);
@@ -1538,57 +1538,78 @@ public class BgGraphBuilder {
                         }
 
 
-                        double height = 6 * bgScale;
-                        if (treatment.insulin > 0)
-                            height = 6;
-                        if (treatment.carbs > 0)
-                            height = 244;
-                        //if (height > highMark) height = highMark;
-                        //if (height < lowMark) height = lowMark;
+                        double height;
+                        float total_height;
+                        double total_height_rounded;
 
-                        final PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
-                        String mylabel = "";
                         if (treatment.insulin > 0) {
-                            if (mylabel.length() > 0)
-                                mylabel = mylabel + System.getProperty("line.separator");
-                            mylabel = mylabel + (JoH.qs(treatment.insulin, 2) + "u").replace(".0u", "u");
+                            total_height = Float.valueOf(JoH.qs(treatment.insulin, 2));
+                            total_height_rounded = Math.floor(total_height);
+                            for (int i = 0; i == total_height_rounded * 6; i = i + 6) {
+                                height = i + 3;
+                                PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
+                                pv.set(treatment.timestamp / FUZZER, (float) height);
+                                treatmentValues.add(pv); // hover
+                            }
                         }
+
                         if (treatment.carbs > 0) {
-                            if (mylabel.length() > 0)
-                                mylabel = mylabel + System.getProperty("line.separator");
-                            mylabel = mylabel + (JoH.qs(treatment.carbs, 1) + "g").replace(".0g", "g");
+                            total_height = Float.valueOf(JoH.qs(treatment.carbs, 2));
+                            total_height_rounded = Math.floor(total_height);
+                            for (int i = 250; i == 250-total_height_rounded * 6; i = i - 6) {
+                                height = i - 3;
+                                PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
+                                pv.set(treatment.timestamp / FUZZER, (float) height);
+                                treatmentValues.add(pv); // hover
+                            }
                         }
-                        pv.setLabel(mylabel); // standard label
+
+
+
+//                        final PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
+//                        String mylabel = "";
+//                        if (treatment.insulin > 0) {
+//                            if (mylabel.length() > 0)
+//                                mylabel = mylabel + System.getProperty("line.separator");
+//                            mylabel = mylabel + (JoH.qs(treatment.insulin, 2) + "u").replace(".0u", "u");
+//                        }
+//                        if (treatment.carbs > 0) {
+//                            if (mylabel.length() > 0)
+//                                mylabel = mylabel + System.getProperty("line.separator");
+//                            mylabel = mylabel + (JoH.qs(treatment.carbs, 1) + "g").replace(".0g", "g");
+//                        }
+//                        pv.setLabel(mylabel); // standard label
 
                         // show basal dose as blue syringe icon
-                        if (treatment.isBasalOnly()) {
-                            //pv.setBitmapScale((float) (0.5f + (treatment.insulin * 5f))); // 0.1U == 100% 0.2U = 150%
-                            BitmapLoader.loadAndSetKey(pv, R.drawable.ic_eyedropper_variant_grey600_24dp, 0);
-                            pv.setBitmapTint(getCol(X.color_basal_tbr));
-                            final Pair<Float, Float> yPositions = GraphTools.bestYPosition(bgReadings, treatment.timestamp, doMgdl, false, highMark, 27d + (18d * consecutiveCloseIcons));
-                            pv.set(treatment.timestamp / FUZZER, yPositions.first);
-                            pv.note = treatment.getBestShortText();
-                            iconValues.add(pv);
-                            lastIconTimestamp = treatment.timestamp;
-                            continue;
-                        }
+//                        if (treatment.isBasalOnly()) {
+//                            //pv.setBitmapScale((float) (0.5f + (treatment.insulin * 5f))); // 0.1U == 100% 0.2U = 150%
+//                            BitmapLoader.loadAndSetKey(pv, R.drawable.ic_eyedropper_variant_grey600_24dp, 0);
+//                            pv.setBitmapTint(getCol(X.color_basal_tbr));
+//                            final Pair<Float, Float> yPositions = GraphTools.bestYPosition(bgReadings, treatment.timestamp, doMgdl, false, highMark, 27d + (18d * consecutiveCloseIcons));
+//                            pv.set(treatment.timestamp / FUZZER, yPositions.first);
+//                            pv.note = treatment.getBestShortText();
+//                            iconValues.add(pv);
+//                            lastIconTimestamp = treatment.timestamp;
+//                            continue;
+//                        }
 
                         //Log.d(TAG, "watchkeypad pv.mylabel: " + mylabel);
-                        if ((treatment.notes != null) && (treatment.notes.length() > 0)) {
-                            pv.note = treatment.getBestShortText();
-                            //Log.d(TAG, "watchkeypad pv.note: " + pv.note + " mylabel: " + mylabel);
-                            try {
-                                final Pattern p = Pattern.compile(".*?pos:([0-9.]+).*");
-                                final Matcher m = p.matcher(treatment.enteredBy);
-                                if (m.matches()) {
-                                    pv.set(pv.getX(), (float) JoH.tolerantParseDouble(m.group(1)));
-                                }
-                            } catch (Exception e) {
-                                Log.d(TAG, "Exception matching position: " + e);
-                            }
-                        } else {
-                            pv.note = treatment.getBestShortText();
-                        }
+//                        if ((treatment.notes != null) && (treatment.notes.length() > 0)) {
+//                            pv.note = treatment.getBestShortText();
+//                            //Log.d(TAG, "watchkeypad pv.note: " + pv.note + " mylabel: " + mylabel);
+//                            try {
+//                                final Pattern p = Pattern.compile(".*?pos:([0-9.]+).*");
+//                                final Matcher m = p.matcher(treatment.enteredBy);
+//                                if (m.matches()) {
+//                                    pv.set(pv.getX(), (float) JoH.tolerantParseDouble(m.group(1)));
+//                                }
+//                            } catch (Exception e) {
+//                                Log.d(TAG, "Exception matching position: " + e);
+//                            }
+//                        } else {
+//                            pv.note = treatment.getBestShortText();
+//                        }
+
 //                        if (treatmentValues.size() > 0) { // not sure if this >1 is right really - needs a review
 //                            PointValue lastpv = treatmentValues.get(treatmentValues.size() - 1);
 //                            if (Math.abs(lastpv.getX() - pv.getX()) < ((10 * 60 * 1000) / FUZZER)) {
@@ -1602,7 +1623,7 @@ public class BgGraphBuilder {
 //                                }
 //                            }
 //                        }
-                        treatmentValues.add(pv); // hover
+//                        treatmentValues.add(pv); // hover
                         if (d)
                             Log.d(TAG, "Treatment total record: " + Double.toString(height) + " " + " timestamp: " + Long.toString(treatment.timestamp));
                     }
