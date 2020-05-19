@@ -681,7 +681,7 @@ public class BgGraphBuilder {
                 lines.add(idealLine());
             }
 
-            lines.add(treatments[3]); // activity
+
             lines.add(treatments[5]); // predictive
             lines.add(treatments[6]); // cob
             lines.add(treatments[7]); // poly predict
@@ -699,6 +699,7 @@ public class BgGraphBuilder {
             lines.add(predictiveHighLine());
             lines.add(lowLine());
             lines.add(predictiveLowLine());
+            lines.add(treatments[3]); // activity
 
             if (prefs.getBoolean("show_filtered_curve", true)) {
                 // use autosplit here too
