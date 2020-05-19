@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="percentile_median">#DFE3EE</color>
-    <color name="percentile_inner">#487EA2</color>
-    <color name="percentile_outer">#355C77</color>
+    <color name="percentile_inner">#3E6B8A</color>
+    <color name="percentile_outer">#1F3645</color>
 
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303f9f</color>
