@@ -67,11 +67,11 @@ public class ChartView extends View {
 
             Log.d("DrawStats", "in,low, high degree: " + inDeg + " " + lowDeg + " " + highDeg);
 
-            myPaint.setColor(android.graphics.Color.parseColor("#D55F4F"));
+            myPaint.setColor(android.graphics.Color.parseColor("#E19C8C"));
             canvas.drawArc(rect, -90, lowDeg, true, myPaint);
-            myPaint.setColor(Color.GREEN);
+            myPaint.setColor(android.graphics.Color.parseColor("#8BB979"));
             canvas.drawArc(rect, -90 + lowDeg, inDeg, true, myPaint);
-            myPaint.setColor(Color.parseColor("#C68362"));
+            myPaint.setColor(Color.parseColor("#F5DD68"));
             canvas.drawArc(rect, -90 + lowDeg + inDeg, highDeg, true, myPaint);
         }
 
