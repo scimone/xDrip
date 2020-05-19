@@ -161,7 +161,7 @@
                     android:title="@string/annotations_and_dots">
 
                     <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
-                        android:defaultValue="#908B84"
+                        android:defaultValue="#B4B1AC"
                         android:key="color_calibration_dot_background"
                         android:title="@string/blood_test_background"
                         app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"
@@ -177,7 +177,7 @@
                         app:colorpicker_showHex="false" />
 
                     <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
-                        android:defaultValue="#908B84"
+                        android:defaultValue="#B4B1AC"
                         android:key="color_treatment_dot_background"
                         android:title="@string/treatment_background"
                         app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"

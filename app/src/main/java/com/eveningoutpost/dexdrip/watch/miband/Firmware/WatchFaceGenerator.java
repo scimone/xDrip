@@ -59,7 +59,7 @@ public class WatchFaceGenerator {
 
     private static int highColor = 0xfff86f69;
     private static int lowColor = 0xff4b95ff;
-    private static int textColor = Color.parseColor("#908B84");
+    private static int textColor = Color.parseColor("#B4B1AC");
     private static int noDataTextSize = 30; //px
     private static int bgValueTextSize = 50; //px
     private static int timeStampTextSize = 18; //px

@@ -612,7 +612,7 @@ public class BgGraphBuilder {
             if ((lline.hasLabels() && (lline.getPointRadius() > 0))) {
 
                 lline.setPointRadius(3); // preserve size for treatments
-                lline.setPointColor(Color.parseColor("#908B84"));
+                lline.setPointColor(Color.parseColor("#B4B1AC"));
             } else if (lline.getPointRadius() > 0) {
                 lline.setPointRadius(unlabledLinesSize);
             }
@@ -2019,7 +2019,7 @@ public class BgGraphBuilder {
         line.setPointColor(ColorUtil.blendColor(Color.BLACK,Color.TRANSPARENT, 0.99f));
         line.setBitmapScale(1f);
         line.setBitmapLabels(true);
-        line.setBitmapLabelShadowColor(Color.parseColor("#908B84"));
+        line.setBitmapLabelShadowColor(Color.parseColor("#B4B1AC"));
         line.setFullShadow(true);
         line.setBitmapCacheProvider(BitmapLoader.getInstance());
         lines.add(line);
