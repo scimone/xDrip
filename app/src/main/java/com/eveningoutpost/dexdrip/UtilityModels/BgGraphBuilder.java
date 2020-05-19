@@ -1912,7 +1912,7 @@ public class BgGraphBuilder {
         highLine.setHasPoints(false);
         highLine.setStrokeWidth(1);
         highLine.setColor(getCol(X.color_high_mark));
-        highLine.setAreaTransparency(70);
+        highLine.setAreaTransparency(90);
         highLine.setFilled(true);
         highLine.setFillFlipped(true);
         return highLine;
@@ -1925,6 +1925,7 @@ public class BgGraphBuilder {
         Line highLine = new Line(predictiveHighLineValues);
         highLine.setHasPoints(false);
         highLine.setStrokeWidth(1);
+        highLine.setAreaTransparency(70);
         highLine.setColor(getCol(X.color_high_mark_predictive));
         highLine.setFilled(true);
         highLine.setFillFlipped(true);
@@ -1937,7 +1938,7 @@ public class BgGraphBuilder {
         lowLineValues.add(new PointValue((float) end_time, (float) lowMark));
         Line lowLine = new Line(lowLineValues);
         lowLine.setHasPoints(false);
-        lowLine.setAreaTransparency(70);
+        lowLine.setAreaTransparency(90);
         lowLine.setColor(getCol(X.color_low_mark));
         lowLine.setStrokeWidth(1);
         lowLine.setFilled(true);
@@ -1950,7 +1951,7 @@ public class BgGraphBuilder {
         lowLineValues.add(new PointValue((float) predictive_end_time, (float) lowMark));
         Line lowLine = new Line(lowLineValues);
         lowLine.setHasPoints(false);
-        lowLine.setAreaTransparency(50);
+        lowLine.setAreaTransparency(70);
         lowLine.setColor(getCol(X.color_low_mark_predictive));
         lowLine.setStrokeWidth(1);
         lowLine.setFilled(true);
