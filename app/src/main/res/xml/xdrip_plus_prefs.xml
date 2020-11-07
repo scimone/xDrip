@@ -54,6 +54,38 @@
                         app:colorpicker_showHex="false" />
 
                     <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
+                        android:defaultValue="#C30909"
+                        android:key="color_low_mark"
+                        android:title="@string/low_glucose_values"
+                        app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"
+                        app:colorpicker_selectNoneButtonText="@string/revert_to_default"
+                        app:colorpicker_showHex="false" />
+
+                    <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
+                        android:defaultValue="#C30909"
+                        android:key="color_high_mark"
+                        android:title="@string/high_glucose_values"
+                        app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"
+                        app:colorpicker_selectNoneButtonText="@string/revert_to_default"
+                        app:colorpicker_showHex="false" />
+
+                    <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
+                        android:defaultValue="#C30909"
+                        android:key="color_low_mark_predictive"
+                        android:title="@string/low_glucose_values"
+                        app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"
+                        app:colorpicker_selectNoneButtonText="@string/revert_to_default"
+                        app:colorpicker_showHex="false" />
+
+                    <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
+                        android:defaultValue="#C30909"
+                        android:key="color_high_mark_predictive"
+                        android:title="@string/high_glucose_values"
+                        app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"
+                        app:colorpicker_selectNoneButtonText="@string/revert_to_default"
+                        app:colorpicker_showHex="false" />
+
+                    <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
                         android:defaultValue="#a0a0a0"
                         android:key="color_filtered"
                         android:title="@string/filtered_values"
@@ -129,7 +161,7 @@
                     android:title="@string/annotations_and_dots">
 
                     <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
-                        android:defaultValue="#FFFFFF"
+                        android:defaultValue="#B4B1AC"
                         android:key="color_calibration_dot_background"
                         android:title="@string/blood_test_background"
                         app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"
@@ -145,7 +177,7 @@
                         app:colorpicker_showHex="false" />
 
                     <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
-                        android:defaultValue="#FFFFFF"
+                        android:defaultValue="#B4B1AC"
                         android:key="color_treatment_dot_background"
                         android:title="@string/treatment_background"
                         app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"
@@ -165,7 +197,7 @@
                     android:key="xdrip_plus_display_colorset5"
                     android:title="@string/backgrounds">
                     <com.eveningoutpost.dexdrip.UtilityModels.ColorPicker
-                        android:defaultValue="#212121"
+                        android:defaultValue="#000000"
                         android:key="color_home_chart_background"
                         android:title="@string/main_chart_background"
                         app:colorpicker_noneSelectedSummaryText="@string/default_color_selected"

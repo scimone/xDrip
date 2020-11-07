@@ -143,7 +143,7 @@ public class MenuActivity extends Activity {
 
         String msg;
         final int offColor = Color.DKGRAY;
-        final int onColor = Color.RED;
+        final int onColor = Color.parseColor("#D55F4F");
 
         addtreatmentbutton.setBackgroundColor(offColor);
         refreshdbbutton.setBackgroundColor(offColor);

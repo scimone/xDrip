@@ -195,7 +195,7 @@ public class CalibrationGraph extends ActivityWithMenu {
 
             // actual raw
             Line lineb = new Line(valuesb);
-            lineb.setColor(Color.RED);
+            lineb.setColor(Color.parseColor("#D55F4F"));
             lineb.setHasLines(false);
             lineb.setPointRadius(1);
             lineb.setHasPoints(true);
@@ -203,7 +203,7 @@ public class CalibrationGraph extends ActivityWithMenu {
 
             // age adjusted raw
             Line linec = new Line(valuesc);
-            linec.setColor(Color.YELLOW);
+            linec.setColor(Color.parseColor("#C68362"));
             linec.setHasLines(false);
             linec.setPointRadius(1);
             linec.setHasPoints(true);

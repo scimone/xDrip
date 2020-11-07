@@ -98,7 +98,7 @@ public class PercentileView extends View {
             Log.d("DrawStats", "PercentileView - onDraw if");
 
             Paint myPaint = new Paint();
-            myPaint.setColor(Color.WHITE);
+            myPaint.setColor(Color.parseColor("#B4B1AC"));
             myPaint.setAntiAlias(true);
             myPaint.setStyle(Paint.Style.STROKE);
             myPaint.setTextSize(dp2px(15));
@@ -205,10 +205,10 @@ public class PercentileView extends View {
         Paint myPaint = new Paint();
         myPaint.setStyle(Paint.Style.STROKE);
         myPaint.setAntiAlias(false);
-        myPaint.setColor(Color.RED);
+        myPaint.setColor(Color.parseColor("#D55F4F"));
         myPaint.setStrokeWidth(dp2px(3));
         canvas.drawLine(dpOffset, lowPosition, canvas.getWidth(), lowPosition, myPaint);
-        myPaint.setColor(Color.YELLOW);
+        myPaint.setColor(Color.parseColor("#C68362"));
         canvas.drawLine(dpOffset, highPosition, canvas.getWidth(), highPosition, myPaint);
     }
 

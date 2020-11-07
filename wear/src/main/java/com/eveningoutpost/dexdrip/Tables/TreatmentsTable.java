@@ -102,14 +102,14 @@ public class TreatmentsTable extends ListActivity {
             tag.raw_data_value.setText("Carbs: " + Math.round(data.carbs) + "g");
             tag.raw_data_slope.setText("enteredBy: " + data.enteredBy + "\neventType: " + data.eventType + (data.notes != null && !data.notes.isEmpty() ? "\n" + data.notes : ""));
             tag.raw_data_timestamp.setText(new Date(data.timestamp).toString());
-            view.setBackgroundColor(Color.parseColor("#212121"));
+            view.setBackgroundColor(Color.parseColor("#000000"));
 
             /*if (bgReading.ignoreForStats) {
                 // red invalid/cancelled/overridden
                 view.setBackgroundColor(Color.parseColor("#660000"));
             } else {
                 // normal grey
-                view.setBackgroundColor(Color.parseColor("#212121"));
+                view.setBackgroundColor(Color.parseColor("#000000"));
             }
 
             view.setLongClickable(true);

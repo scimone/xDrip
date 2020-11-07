@@ -255,7 +255,7 @@ public class BgGraphBuilder {
     public Line[] calibrationValuesLine() {
         Line[] lines = new Line[2];
         lines[0] = new Line(calibrationValues);
-        lines[0].setColor(Color.parseColor("#FFFFFF"));
+        lines[0].setColor(Color.parseColor("#908B84"));
         lines[0].setHasLines(false);
         lines[0].setPointRadius(pointSize * 3 / 2);
         lines[0].setHasPoints(true);

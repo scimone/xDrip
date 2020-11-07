@@ -188,7 +188,7 @@ public class Preferences extends BasePreferenceActivity implements SearchPrefere
     public void onSearchResultClicked(@NonNull SearchPreferenceResult searchPreferenceResult) {
         try {
             searchPreferenceResult.closeSearchPage(this);
-            searchPreferenceResult.highlight(this.preferenceFragment, Color.YELLOW);
+            searchPreferenceResult.highlight(this.preferenceFragment, Color.parseColor("#C68362"));
         } catch (RuntimeException e) {
             Log.wtf(TAG, "Got error trying to highlight search results: " + e);
             JoH.static_toast_long("" + e);

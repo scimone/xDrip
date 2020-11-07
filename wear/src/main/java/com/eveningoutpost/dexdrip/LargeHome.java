@@ -136,46 +136,46 @@ public class LargeHome extends BaseWatchFace {
             }
 
             if (ageLevel == 1) {
-                mTimestamp.setTextColor(Color.WHITE);
+                mTimestamp.setTextColor(Color.parseColor("#908B84"));
             } else {
-                mTimestamp.setTextColor(Color.RED);
+                mTimestamp.setTextColor(Color.parseColor("#D55F4F"));
             }
 
             if (batteryLevel == 1) {
-                mUploaderBattery.setTextColor(Color.WHITE);
+                mUploaderBattery.setTextColor(Color.parseColor("#908B84"));
             } else {
-                mUploaderBattery.setTextColor(Color.RED);
+                mUploaderBattery.setTextColor(Color.parseColor("#D55F4F"));
             }
             if (batteryLevel == 1) {
-                mUploaderXBattery.setTextColor(Color.WHITE);
+                mUploaderXBattery.setTextColor(Color.parseColor("#908B84"));
             } else {
-                mUploaderXBattery.setTextColor(Color.RED);
+                mUploaderXBattery.setTextColor(Color.parseColor("#D55F4F"));
             }
-            mStatus.setTextColor(Color.WHITE);
+            mStatus.setTextColor(Color.parseColor("#908B84"));
             mTime.setTextColor(Color.BLACK);
             mDate.setTextColor(Color.BLACK);
         } else {
             mRelativeLayout.setBackgroundColor(Color.BLACK);
             mLinearLayout.setBackgroundColor(Color.LTGRAY);
             if (sgvLevel == 1) {
-                mSgv.setTextColor(Color.YELLOW);
-                mDirection.setTextColor(Color.YELLOW);
-                mDelta.setTextColor(Color.YELLOW);
+                mSgv.setTextColor(getResources().getColor(R.color.light_highColor));
+                mDirection.setTextColor(getResources().getColor(R.color.light_highColor));
+                mDelta.setTextColor(getResources().getColor(R.color.light_highColor));
             } else if (sgvLevel == 0) {
-                mSgv.setTextColor(Color.WHITE);
-                mDirection.setTextColor(Color.WHITE);
-                mDelta.setTextColor(Color.WHITE);
+                mSgv.setTextColor(Color.parseColor("#908B84"));
+                mDirection.setTextColor(Color.parseColor("#908B84"));
+                mDelta.setTextColor(Color.parseColor("#908B84"));
             } else if (sgvLevel == -1) {
-                mSgv.setTextColor(Color.RED);
-                mDirection.setTextColor(Color.RED);
-                mDelta.setTextColor(Color.RED);
+                mSgv.setTextColor(Color.parseColor("#D55F4F"));
+                mDirection.setTextColor(Color.parseColor("#D55F4F"));
+                mDelta.setTextColor(Color.parseColor("#D55F4F"));
             }
 
             mUploaderBattery.setTextColor(Color.BLACK);
             mTimestamp.setTextColor(Color.BLACK);
             mStatus.setTextColor(Color.BLACK);
-            mTime.setTextColor(Color.WHITE);
-            mDate.setTextColor(Color.WHITE);
+            mTime.setTextColor(Color.parseColor("#908B84"));
+            mDate.setTextColor(Color.parseColor("#908B84"));
         }
     }
 

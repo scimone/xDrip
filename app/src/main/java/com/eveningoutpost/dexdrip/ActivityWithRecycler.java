@@ -60,7 +60,7 @@ public class ActivityWithRecycler extends BaseAppCompatActivity {
 
         @Override
         public void onItemSelected() {
-            itemView.setBackgroundColor(Color.RED);
+            itemView.setBackgroundColor(Color.parseColor("#D55F4F"));
         }
 
         @Override

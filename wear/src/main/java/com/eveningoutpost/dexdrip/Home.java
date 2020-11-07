@@ -160,7 +160,7 @@ public class Home extends BaseWatchFace {
 
             mStatus.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.dark_mStatus_home));
 
-            mLinearLayout.setBackgroundColor(matchingDividerBar ? Color.BLACK : Color.WHITE);
+            mLinearLayout.setBackgroundColor(matchingDividerBar ? Color.BLACK : Color.parseColor("#908B84"));
 
             mTimestamp.setTextColor(ContextCompat.getColor(getApplicationContext(), matchingDividerBar ? R.color.dark_mTime : R.color.dark_mStatus_home));
             mUploaderBattery.setTextColor(ContextCompat.getColor(getApplicationContext(), matchingDividerBar ? R.color.dark_mTime : R.color.dark_mStatus_home));
@@ -233,23 +233,23 @@ public class Home extends BaseWatchFace {
                 }
 
                 if (ageLevel == 1) {
-                    mTimestamp.setTextColor(Color.WHITE);
+                    mTimestamp.setTextColor(Color.parseColor("#908B84"));
                 } else {
-                    mTimestamp.setTextColor(Color.RED);
+                    mTimestamp.setTextColor(Color.parseColor("#D55F4F"));
                 }
 
                 if (batteryLevel == 1) {
-                    mUploaderBattery.setTextColor(Color.WHITE);
+                    mUploaderBattery.setTextColor(Color.parseColor("#908B84"));
                 } else {
-                    mUploaderBattery.setTextColor(Color.RED);
+                    mUploaderBattery.setTextColor(Color.parseColor("#D55F4F"));
                 }
                 if (mXBatteryLevel == 1) {
-                    mUploaderXBattery.setTextColor(Color.WHITE);
+                    mUploaderXBattery.setTextColor(Color.parseColor("#908B84"));
                 } else {
-                    mUploaderXBattery.setTextColor(Color.RED);
+                    mUploaderXBattery.setTextColor(Color.parseColor("#D55F4F"));
                 }
 
-                mStatus.setTextColor(Color.WHITE);
+                mStatus.setTextColor(Color.parseColor("#908B84"));
 
                 mTime.setTextColor(Color.BLACK);
                 mDate.setTextColor(Color.BLACK);
@@ -257,7 +257,7 @@ public class Home extends BaseWatchFace {
                 mLinearLayout.setBackgroundColor(Color.BLACK);
 
 
-                mLinearLayout.setBackgroundColor(matchingDividerBar ? Color.BLACK : Color.WHITE);
+                mLinearLayout.setBackgroundColor(matchingDividerBar ? Color.BLACK : Color.parseColor("#908B84"));
 
                 mTimestamp.setTextColor(ContextCompat.getColor(getApplicationContext(), matchingDividerBar ? R.color.dark_mTime : R.color.dark_mStatus_home));
                 mUploaderBattery.setTextColor(ContextCompat.getColor(getApplicationContext(), matchingDividerBar ? R.color.dark_mTime : R.color.dark_mStatus_home));

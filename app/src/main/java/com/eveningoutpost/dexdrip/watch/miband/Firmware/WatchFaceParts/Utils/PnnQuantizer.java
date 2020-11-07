@@ -425,7 +425,7 @@ public class PnnQuantizer {
                 palette[1] = Color.BLACK;
             } else {
                 palette[0] = Color.BLACK;
-                palette[1] = Color.WHITE;
+                palette[1] = Color.parseColor("#B4B1AC");
             }
         }
 

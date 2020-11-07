@@ -151,6 +151,7 @@ public class BgGraphBuilder {
     private final List<PointValue> bloodTestValues = new ArrayList<PointValue>();
     private final List<PointValue> calibrationValues = new ArrayList<PointValue>();
     private final List<PointValue> treatmentValues = new ArrayList<PointValue>();
+    private final List<PointValue> carbValues = new ArrayList<PointValue>();
     private final List<PointValue> smbValues = new ArrayList<>();
     private final List<PointValue> iconValues = new ArrayList<>();
     private final List<PointValue> iobValues = new ArrayList<PointValue>();
@@ -370,7 +371,7 @@ public class BgGraphBuilder {
                 line.setFillFlipped(true);
                 line.setHasGradientToTransparent(true);
                 line.setHasPoints(false);
-                line.setStrokeWidth(1);
+                line.setStrokeWidth(3);
                 line.setHasLines(true);
                 line.setSquare(true);
                 line.setPointRadius(1);
@@ -395,7 +396,7 @@ public class BgGraphBuilder {
             final boolean d = false;
             if (d) Log.d(TAG, "Delta: pmlist size: " + pmlist.size());
             final float yscale = doMgdl ? (float) Constants.MMOLL_TO_MGDL : 1f;
-            final float ypos = 6 * yscale; // TODO Configurable
+            final float ypos = 70; // TODO Configurable
             //final long last_timestamp = pmlist.get(pmlist.size() - 1).timestamp;
             final float MAX_SIZE = 50;
             int flipper = 0;
@@ -494,7 +495,7 @@ public class BgGraphBuilder {
             final Line macroHeartRateLine = new Line(new_points);
             for (Line this_line : autoSplitLine(macroHeartRateLine, 30)) {
                 this_line.setColor(getCol(X.color_heart_rate1));
-                this_line.setStrokeWidth(6);
+                this_line.setStrokeWidth(5);
                 this_line.setHasPoints(false);
                 this_line.setHasLines(true);
                 this_line.setCubic(true);
@@ -593,8 +594,8 @@ public class BgGraphBuilder {
             if (d) Log.d(TAG,"Cloned preview chart data");
         }
 
-        previewLineData.setAxisYLeft(yAxis());
-        previewLineData.setAxisXBottom(previewXAxis());
+        //previewLineData.setAxisYLeft(yAxis());
+        //previewLineData.setAxisXBottom(previewXAxis());
 
         // reduce complexity of preview chart by removing some lines
         final List<Line> removeItems = new ArrayList<>();
@@ -604,18 +605,25 @@ public class BgGraphBuilder {
         }
         for (Line lline : previewLineData.getLines()) {
             if (((lline.getPointRadius() == pluginSize) && (lline.getPointColor() == getCol(X.color_secondary_glucose_value)))
-                    || ((lline.getColor() == getCol(X.color_step_counter1) || (lline.getColor() == getCol(X.color_step_counter2) || (lline.getColor()== getCol(X.color_heart_rate1)))))) {
+                    || ((lline.getColor() == getCol(X.color_treatment_dot_foreground) || (lline.getColor() == getCol(X.color_treatment_dot_background) || (lline.getColor() == getCol(X.color_treatment) || (lline.getColor() == getCol(X.color_smb_line) || (lline.getColor() == getCol(X.color_smb_icon) || (lline.getColor() == getCol(X.color_high_mark) || (lline.getColor() == getCol(X.color_low_mark) || (lline.getColor() == getCol(X.color_low_mark_predictive) || (lline.getColor() == getCol(X.color_high_mark_predictive) || (lline.getColor() == getCol(X.color_basal_tbr))))))))))))) {
                 removeItems.add(lline); // remove plugin or step counter plot from preview graph
             }
 
             if ((lline.hasLabels() && (lline.getPointRadius() > 0))) {
 
                 lline.setPointRadius(3); // preserve size for treatments
-                lline.setPointColor(Color.parseColor("#FFFFFF"));
+                lline.setPointColor(Color.parseColor("#B4B1AC"));
             } else if (lline.getPointRadius() > 0) {
                 lline.setPointRadius(unlabledLinesSize);
             }
             lline.setHasLabels(false);
+
+            if (lline.getColor() == getCol(X.color_heart_rate1)) {
+                lline.setStrokeWidth(2);
+            }
+            if (lline.getColor() == getCol(X.color_step_counter1) || lline.getColor() == getCol(X.color_step_counter2)) {
+                lline.setStrokeWidth(lline.getStrokeWidth()/3);
+            }
         }
 
         for (Line item : removeItems) {
@@ -673,7 +681,7 @@ public class BgGraphBuilder {
                 lines.add(idealLine());
             }
 
-            lines.add(treatments[3]); // activity
+
             lines.add(treatments[5]); // predictive
             lines.add(treatments[6]); // cob
             lines.add(treatments[7]); // poly predict
@@ -691,6 +699,7 @@ public class BgGraphBuilder {
             lines.add(predictiveHighLine());
             lines.add(lowLine());
             lines.add(predictiveLowLine());
+            lines.add(treatments[3]); // activity
 
             if (prefs.getBoolean("show_filtered_curve", true)) {
                 // use autosplit here too
@@ -719,7 +728,7 @@ public class BgGraphBuilder {
             if (showSMB) {
                 lines.addAll(smbLines());
             }
-            lines.addAll(iconLines());
+            //lines.addAll(iconLines());
 
             lines.add(calib[0]); // white circle of calib in background
             lines.add(treatments[0]); // white circle of treatment in background
@@ -919,19 +928,20 @@ public class BgGraphBuilder {
         Line[] lines = new Line[9];
         try {
 
-            lines[0] = new Line(treatmentValues);
+            lines[0] = new Line(carbValues);
             lines[0].setColor(getCol(X.color_treatment_dot_background));
             lines[0].setHasLines(false);
-            lines[0].setPointRadius(pointSize * 5 / 2);
+            lines[0].setPointRadius(6);
             lines[0].setHasPoints(true);
+            lines[0].setShape(ValueShape.SQUARE);
 
             lines[1] = new Line(treatmentValues);
             lines[1].setColor(getCol(X.color_treatment_dot_foreground));
             lines[1].setHasLines(false);
-            lines[1].setPointRadius(pointSize * 5 / 4);
+            lines[1].setPointRadius(6);
             lines[1].setHasPoints(true);
-            lines[1].setShape(ValueShape.DIAMOND);
-            lines[1].setHasLabels(true);
+            lines[1].setShape(ValueShape.SQUARE);
+            //lines[1].setHasLabels(true);
 
             LineChartValueFormatter formatter = new SimpleLineChartValueFormatter(1);
             lines[1].setFormatter(formatter);
@@ -943,7 +953,7 @@ public class BgGraphBuilder {
             lines[2].setHasLines(true);
             lines[2].setCubic(false);
             lines[2].setFilled(true);
-            lines[2].setAreaTransparency(35);
+            lines[2].setAreaTransparency(0);
             lines[2].setFilled(true);
             lines[2].setPointRadius(1);
             lines[2].setHasPoints(true);
@@ -953,13 +963,13 @@ public class BgGraphBuilder {
             // iactivity on board
             lines[3] = new Line(activityValues);
             lines[3].setColor(getCol(X.color_treatment_dark));
-            lines[3].setHasLines(false);
+            lines[3].setHasLines(true);
             lines[3].setCubic(false);
-            lines[3].setFilled(false);
-
-            lines[3].setFilled(false);
+            lines[3].setFilled(true);
+            lines[3].setAreaTransparency(70);
+            lines[3].setFilled(true);
             lines[3].setPointRadius(1);
-            lines[3].setHasPoints(true);
+            //lines[3].setHasPoints(true);
 
             // annotations
             lines[4] = new Line(annotationValues);
@@ -1531,69 +1541,90 @@ public class BgGraphBuilder {
                         }
 
 
-                        double height = 6 * bgScale;
-                        if (treatment.insulin > 0)
-                            height = treatment.insulin; // some scaling needed I think
-                        if (height > highMark) height = highMark;
-                        if (height < lowMark) height = lowMark;
+                        double height=0;
+                        float total_height;
+                        double total_height_rounded;
+                        int i;
+                        PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
 
-                        final PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
-                        String mylabel = "";
                         if (treatment.insulin > 0) {
-                            if (mylabel.length() > 0)
-                                mylabel = mylabel + System.getProperty("line.separator");
-                            mylabel = mylabel + (JoH.qs(treatment.insulin, 2) + "u").replace(".0u", "u");
+                            total_height = Float.valueOf(JoH.qs(treatment.insulin, 2));
+                            total_height_rounded = Math.ceil(total_height);
+                            for (i = 0; i < (int) (total_height_rounded * 6); i += 6) {
+                                height = i + 3;
+                                treatmentValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
+                            }
                         }
+
                         if (treatment.carbs > 0) {
-                            if (mylabel.length() > 0)
-                                mylabel = mylabel + System.getProperty("line.separator");
-                            mylabel = mylabel + (JoH.qs(treatment.carbs, 1) + "g").replace(".0g", "g");
+                            total_height = Float.valueOf(JoH.qs(treatment.carbs, 2))/10;
+                            total_height_rounded = Math.ceil(total_height);
+                            for (i = 250; i > (int) (250-total_height_rounded * 6); i -= 6) {
+                                height = i - 3;
+                                carbValues.add(new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height)); // hover
+                            }
                         }
-                        pv.setLabel(mylabel); // standard label
+
+
+
+//                        final PointValueExtended pv = new PointValueExtended((float) (treatment.timestamp / FUZZER), (float) height);
+//                        String mylabel = "";
+//                        if (treatment.insulin > 0) {
+//                            if (mylabel.length() > 0)
+//                                mylabel = mylabel + System.getProperty("line.separator");
+//                            mylabel = mylabel + (JoH.qs(treatment.insulin, 2) + "u").replace(".0u", "u");
+//                        }
+//                        if (treatment.carbs > 0) {
+//                            if (mylabel.length() > 0)
+//                                mylabel = mylabel + System.getProperty("line.separator");
+//                            mylabel = mylabel + (JoH.qs(treatment.carbs, 1) + "g").replace(".0g", "g");
+//                        }
+//                        pv.setLabel(mylabel); // standard label
 
                         // show basal dose as blue syringe icon
-                        if (treatment.isBasalOnly()) {
-                            //pv.setBitmapScale((float) (0.5f + (treatment.insulin * 5f))); // 0.1U == 100% 0.2U = 150%
-                            BitmapLoader.loadAndSetKey(pv, R.drawable.ic_eyedropper_variant_grey600_24dp, 0);
-                            pv.setBitmapTint(getCol(X.color_basal_tbr));
-                            final Pair<Float, Float> yPositions = GraphTools.bestYPosition(bgReadings, treatment.timestamp, doMgdl, false, highMark, 27d + (18d * consecutiveCloseIcons));
-                            pv.set(treatment.timestamp / FUZZER, yPositions.first);
-                            pv.note = treatment.getBestShortText();
-                            iconValues.add(pv);
-                            lastIconTimestamp = treatment.timestamp;
-                            continue;
-                        }
+//                        if (treatment.isBasalOnly()) {
+//                            //pv.setBitmapScale((float) (0.5f + (treatment.insulin * 5f))); // 0.1U == 100% 0.2U = 150%
+//                            BitmapLoader.loadAndSetKey(pv, R.drawable.ic_eyedropper_variant_grey600_24dp, 0);
+//                            pv.setBitmapTint(getCol(X.color_basal_tbr));
+//                            final Pair<Float, Float> yPositions = GraphTools.bestYPosition(bgReadings, treatment.timestamp, doMgdl, false, highMark, 27d + (18d * consecutiveCloseIcons));
+//                            pv.set(treatment.timestamp / FUZZER, yPositions.first);
+//                            pv.note = treatment.getBestShortText();
+//                            iconValues.add(pv);
+//                            lastIconTimestamp = treatment.timestamp;
+//                            continue;
+//                        }
 
                         //Log.d(TAG, "watchkeypad pv.mylabel: " + mylabel);
-                        if ((treatment.notes != null) && (treatment.notes.length() > 0)) {
-                            pv.note = treatment.getBestShortText();
-                            //Log.d(TAG, "watchkeypad pv.note: " + pv.note + " mylabel: " + mylabel);
-                            try {
-                                final Pattern p = Pattern.compile(".*?pos:([0-9.]+).*");
-                                final Matcher m = p.matcher(treatment.enteredBy);
-                                if (m.matches()) {
-                                    pv.set(pv.getX(), (float) JoH.tolerantParseDouble(m.group(1)));
-                                }
-                            } catch (Exception e) {
-                                Log.d(TAG, "Exception matching position: " + e);
-                            }
-                        } else {
-                            pv.note = treatment.getBestShortText();
-                        }
-                        if (treatmentValues.size() > 0) { // not sure if this >1 is right really - needs a review
-                            PointValue lastpv = treatmentValues.get(treatmentValues.size() - 1);
-                            if (Math.abs(lastpv.getX() - pv.getX()) < ((10 * 60 * 1000) / FUZZER)) {
-                                // merge label with previous - Intelligent parsing and additions go here
-                                if (d)
-                                    Log.d(TAG, "Merge treatment difference: " + Float.toString(lastpv.getX() - pv.getX()));
-                                String lastlabel = String.valueOf(lastpv.getLabelAsChars());
-                                if (lastlabel.length() > 0) {
-                                    lastpv.setLabel(lastlabel + "+" + mylabel);
-                                    pv.setLabel("");
-                                }
-                            }
-                        }
-                        treatmentValues.add(pv); // hover
+//                        if ((treatment.notes != null) && (treatment.notes.length() > 0)) {
+//                            pv.note = treatment.getBestShortText();
+//                            //Log.d(TAG, "watchkeypad pv.note: " + pv.note + " mylabel: " + mylabel);
+//                            try {
+//                                final Pattern p = Pattern.compile(".*?pos:([0-9.]+).*");
+//                                final Matcher m = p.matcher(treatment.enteredBy);
+//                                if (m.matches()) {
+//                                    pv.set(pv.getX(), (float) JoH.tolerantParseDouble(m.group(1)));
+//                                }
+//                            } catch (Exception e) {
+//                                Log.d(TAG, "Exception matching position: " + e);
+//                            }
+//                        } else {
+//                            pv.note = treatment.getBestShortText();
+//                        }
+
+//                        if (treatmentValues.size() > 0) { // not sure if this >1 is right really - needs a review
+//                            PointValue lastpv = treatmentValues.get(treatmentValues.size() - 1);
+//                            if (Math.abs(lastpv.getX() - pv.getX()) < ((10 * 60 * 1000) / FUZZER)) {
+//                                // merge label with previous - Intelligent parsing and additions go here
+//                                if (d)
+//                                    Log.d(TAG, "Merge treatment difference: " + Float.toString(lastpv.getX() - pv.getX()));
+//                                String lastlabel = String.valueOf(lastpv.getLabelAsChars());
+//                                if (lastlabel.length() > 0) {
+//                                    lastpv.setLabel(lastlabel + "+" + mylabel);
+//                                    pv.setLabel("");
+//                                }
+//                            }
+//                        }
+//                        treatmentValues.add(pv); // hover
                         if (d)
                             Log.d(TAG, "Treatment total record: " + Double.toString(height) + " " + " timestamp: " + Long.toString(treatment.timestamp));
                     }
@@ -1881,7 +1912,10 @@ public class BgGraphBuilder {
         Line highLine = new Line(highLineValues);
         highLine.setHasPoints(false);
         highLine.setStrokeWidth(1);
-        highLine.setColor(getCol(X.color_high_values));
+        highLine.setColor(getCol(X.color_high_mark));
+        highLine.setAreaTransparency(90);
+        highLine.setFilled(true);
+        highLine.setFillFlipped(true);
         return highLine;
     }
 
@@ -1892,7 +1926,10 @@ public class BgGraphBuilder {
         Line highLine = new Line(predictiveHighLineValues);
         highLine.setHasPoints(false);
         highLine.setStrokeWidth(1);
-        highLine.setColor(ChartUtils.darkenColor(ChartUtils.darkenColor(ChartUtils.darkenColor(getCol(X.color_high_values)))));
+        highLine.setAreaTransparency(70);
+        highLine.setColor(getCol(X.color_high_mark_predictive));
+        highLine.setFilled(true);
+        highLine.setFillFlipped(true);
         return highLine;
     }
 
@@ -1902,8 +1939,8 @@ public class BgGraphBuilder {
         lowLineValues.add(new PointValue((float) end_time, (float) lowMark));
         Line lowLine = new Line(lowLineValues);
         lowLine.setHasPoints(false);
-        lowLine.setAreaTransparency(50);
-        lowLine.setColor(getCol(X.color_low_values));
+        lowLine.setAreaTransparency(90);
+        lowLine.setColor(getCol(X.color_low_mark));
         lowLine.setStrokeWidth(1);
         lowLine.setFilled(true);
         return lowLine;
@@ -1915,8 +1952,8 @@ public class BgGraphBuilder {
         lowLineValues.add(new PointValue((float) predictive_end_time, (float) lowMark));
         Line lowLine = new Line(lowLineValues);
         lowLine.setHasPoints(false);
-        lowLine.setAreaTransparency(40);
-        lowLine.setColor(ChartUtils.darkenColor(ChartUtils.darkenColor(ChartUtils.darkenColor(getCol(X.color_low_values)))));
+        lowLine.setAreaTransparency(70);
+        lowLine.setColor(getCol(X.color_low_mark_predictive));
         lowLine.setStrokeWidth(1);
         lowLine.setFilled(true);
         return lowLine;
@@ -1983,7 +2020,7 @@ public class BgGraphBuilder {
         line.setPointColor(ColorUtil.blendColor(Color.BLACK,Color.TRANSPARENT, 0.99f));
         line.setBitmapScale(1f);
         line.setBitmapLabels(true);
-        line.setBitmapLabelShadowColor(Color.WHITE);
+        line.setBitmapLabelShadowColor(Color.parseColor("#B4B1AC"));
         line.setFullShadow(true);
         line.setBitmapCacheProvider(BitmapLoader.getInstance());
         lines.add(line);
@@ -2009,7 +2046,9 @@ public class BgGraphBuilder {
         yAxis.setMaxLabelChars(5);
         yAxis.setInside(true);
         yAxis.setTextSize(axisTextSize);
-        yAxis.setHasLines(prefs.getBoolean("show_graph_grid_glucose",true));
+        yAxis.setHasLines(prefs.getBoolean("show_graph_grid_glucose",false));
+        yAxis.setLineColor(Color.parseColor("#212121"));
+        yAxis.setTextColor(Color.parseColor("#212121"));
         return yAxis;
     }
 
@@ -2058,7 +2097,9 @@ public class BgGraphBuilder {
     public Axis chartXAxis() {
         Axis xAxis = xAxis();
         xAxis.setHasLines(prefs.getBoolean("show_graph_grid_time", true));
+        xAxis.setLineColor(Color.parseColor("#212121"));
         xAxis.setTextSize(axisTextSize);
+        xAxis.setTextColor(Color.parseColor("#42403C"));
         return xAxis;
     }
 

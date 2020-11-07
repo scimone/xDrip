@@ -36,7 +36,7 @@ public class ChartView extends View {
             Log.d("DrawStats", "ChartView - onDraw if");
 
             Paint myPaint = new Paint();
-            myPaint.setColor(Color.WHITE);
+            myPaint.setColor(Color.parseColor("#B4B1AC"));
             myPaint.setAntiAlias(true);
             myPaint.setStyle(Paint.Style.STROKE);
             myPaint.setTextSize(dp2px(15));
@@ -46,7 +46,7 @@ public class ChartView extends View {
 
             if ((rd.aboveRange + rd.belowRange + rd.inRange) == 0) {
                 Paint myPaint = new Paint();
-                myPaint.setColor(Color.WHITE);
+                myPaint.setColor(Color.parseColor("#B4B1AC"));
                 myPaint.setAntiAlias(true);
                 myPaint.setStyle(Paint.Style.STROKE);
                 myPaint.setTextSize(dp2px(15));
@@ -67,11 +67,11 @@ public class ChartView extends View {
 
             Log.d("DrawStats", "in,low, high degree: " + inDeg + " " + lowDeg + " " + highDeg);
 
-            myPaint.setColor(android.graphics.Color.RED);
+            myPaint.setColor(android.graphics.Color.parseColor("#E19C8C"));
             canvas.drawArc(rect, -90, lowDeg, true, myPaint);
-            myPaint.setColor(Color.GREEN);
+            myPaint.setColor(android.graphics.Color.parseColor("#8BB979"));
             canvas.drawArc(rect, -90 + lowDeg, inDeg, true, myPaint);
-            myPaint.setColor(Color.YELLOW);
+            myPaint.setColor(Color.parseColor("#F5DD68"));
             canvas.drawArc(rect, -90 + lowDeg + inDeg, highDeg, true, myPaint);
         }
 

@@ -3,6 +3,7 @@ package com.eveningoutpost.dexdrip;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -163,6 +164,7 @@ public class BGHistory extends ActivityWithMenu {
         previewChart.setViewportCalculationEnabled(true);
         chart.setViewportCalculationEnabled(true);
         previewChart.setViewportChangeListener(new ViewportListener());
+        previewChart.setPreviewColor(Color.parseColor("#69655F"));
         chart.setViewportChangeListener(new ChartViewPortListener());
 
         setupStatistics(date1.getTimeInMillis(), endDate.getTimeInMillis());

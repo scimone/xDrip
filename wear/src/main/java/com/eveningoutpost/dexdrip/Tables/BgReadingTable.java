@@ -123,7 +123,7 @@ public class BgReadingTable extends ListActivity {//implements NavigationDrawerF
                 view.setBackgroundColor(Color.parseColor("#660000"));
             } else {
                 // normal grey
-                view.setBackgroundColor(Color.parseColor("#212121"));
+                view.setBackgroundColor(Color.parseColor("#000000"));
             }
 
             /*view.setLongClickable(true);

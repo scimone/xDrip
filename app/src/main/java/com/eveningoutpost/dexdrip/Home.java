@@ -2039,6 +2039,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     public void setViewport() {
         if (tempViewport.left == 0.0 || holdViewport.left == 0.0 || holdViewport.right >= (new Date().getTime())) {
             previewChart.setCurrentViewport(bgGraphBuilder.advanceViewport(chart, previewChart, hours));
+            previewChart.setPreviewColor(Color.parseColor("#69655F"));
         } else {
             previewChart.setCurrentViewport(holdViewport);
         }
@@ -2267,7 +2268,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             lowPredictText.setTextSize(30);
         }
         notificationText.setText("");
-        notificationText.setTextColor(Color.RED);
+        notificationText.setTextColor(Color.parseColor("#D55F4F"));
 
         UndoRedo.purgeQueues();
 
@@ -2385,13 +2386,13 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             if (predicted_low_in_mins > 1) {
                 lowPredictText.append(getString(R.string.low_predicted) + "\n" + getString(R.string.in) + ": " + (int) predicted_low_in_mins + getString(R.string.space_mins));
                 if (predicted_low_in_mins < low_predicted_alarm_minutes) {
-                    lowPredictText.setTextColor(Color.RED); // low front getting too close!
+                    lowPredictText.setTextColor(Color.parseColor("#D55F4F")); // low front getting too close!
                 } else {
                     final double previous_predicted_low_in_mins = (BgGraphBuilder.previous_low_occurs_at - now) / 60000;
                     if ((BgGraphBuilder.previous_low_occurs_at > 0) && ((previous_predicted_low_in_mins + 5) < predicted_low_in_mins)) {
                         lowPredictText.setTextColor(Color.GREEN); // low front is getting further away
                     } else {
-                        lowPredictText.setTextColor(Color.YELLOW); // low front is getting nearer!
+                        lowPredictText.setTextColor(Color.parseColor("#C68362")); // low front is getting nearer!
                     }
                 }
                 lowPredictText.setVisibility(View.VISIBLE);
@@ -2720,8 +2721,8 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                     dexbridgeBattery.setText("Bridge battery" + ": " + bridgeBattery + ((bridgeBattery < 200) ? "%" : "mV"));
                 }
             }
-            if (bridgeBattery < 50) dexbridgeBattery.setTextColor(Color.YELLOW);
-            if (bridgeBattery < 25) dexbridgeBattery.setTextColor(Color.RED);
+            if (bridgeBattery < 50) dexbridgeBattery.setTextColor(Color.parseColor("#C68362"));
+            if (bridgeBattery < 25) dexbridgeBattery.setTextColor(Color.parseColor("#D55F4F"));
             else dexbridgeBattery.setTextColor(Color.GREEN);
             dexbridgeBattery.setVisibility(View.VISIBLE);
 
@@ -2736,9 +2737,9 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                     parakeetBattery.setText(getString(R.string.parakeet_battery) + ": " + bridgeBattery + "%");
 
                     if (bridgeBattery < 40) {
-                        parakeetBattery.setTextColor(Color.RED);
+                        parakeetBattery.setTextColor(Color.parseColor("#D55F4F"));
                     } else {
-                        parakeetBattery.setTextColor(Color.YELLOW);
+                        parakeetBattery.setTextColor(Color.parseColor("#C68362"));
                     }
                     parakeetBattery.setVisibility(View.VISIBLE);
                 } else {
@@ -2770,11 +2771,11 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             }
             sensorAge.setVisibility(View.VISIBLE);
             if (sensor_age < 1440) {
-                sensorAge.setTextColor(Color.YELLOW);
+                sensorAge.setTextColor(Color.parseColor("#C68362"));
             } else if (sensor_age < (1440 * 12)) {
                 sensorAge.setTextColor(Color.GREEN);
             } else {
-                sensorAge.setTextColor(Color.RED);
+                sensorAge.setTextColor(Color.parseColor("#D55F4F"));
             }
         } else {
             sensorAge.setVisibility(View.GONE);
@@ -2853,7 +2854,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         } else {
             // not stale
             if (notificationText.getText().length() == 0) {
-                notificationText.setTextColor(Color.WHITE);
+                notificationText.setTextColor(Color.parseColor("#B4B1AC"));
             }
             boolean bg_from_filtered = Pref.getBoolean("bg_from_filtered", false);
             if (!predictive) {
@@ -2944,7 +2945,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         } else if (bgGraphBuilder.unitized(estimate) >= bgGraphBuilder.highMark) {
             currentBgValueText.setTextColor(Color.parseColor("#FFBB33"));
         } else {
-            currentBgValueText.setTextColor(Color.WHITE);
+            currentBgValueText.setTextColor(Color.parseColor("#B4B1AC"));
         }
 
         // TODO this should be made more efficient probably
@@ -3479,7 +3480,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                 activity.findViewById(android.R.id.content),
                 message, android.support.design.widget.Snackbar.LENGTH_LONG)
                 .setAction(buttonString, mOnClickListener)
-                //.setActionTextColor(Color.RED)
+                //.setActionTextColor(Color.parseColor("#D55F4F"))
                 .show();
     }
 
