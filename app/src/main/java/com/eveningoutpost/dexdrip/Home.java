@@ -293,6 +293,8 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     private ActivityHomeBinding binding;
     private boolean is_newbie;
     private boolean checkedeula;
+    private static boolean has_libreblock = false;
+    private static boolean has_libreblock_set = false;
 
     @Inject
     BaseShelf homeShelf;
@@ -300,6 +302,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     MicroStatus microStatus;
 
     NanoStatus nanoStatus;
+    NanoStatus expiryStatus;
 
     private ITrendArrow itr;
 
@@ -357,6 +360,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         }
 
         nanoStatus = new NanoStatus("collector", 1000);
+        expiryStatus = new NanoStatus("sensor-expiry", 15000);
 
         set_is_follower();
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
@@ -368,6 +372,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         binding.setHome(this);
         binding.setUi(ui);
         binding.setNano(nanoStatus);
+        binding.setExpiry(expiryStatus);
         setContentView(binding.getRoot());
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -1816,6 +1821,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         statusBWP = "";
         refreshStatusLine();
         nanoStatus.setRunning(true);
+        expiryStatus.setRunning(true);
 
         if (BgGraphBuilder.isXLargeTablet(getApplicationContext())) {
             this.currentBgValueText.setTextSize(100);
@@ -2051,6 +2057,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         super.onPause();
         NFCReaderX.stopNFC(this);
         nanoStatus.setRunning(false);
+        expiryStatus.setRunning(false);
         if (_broadcastReceiver != null) {
             try {
                 unregisterReceiver(_broadcastReceiver);
@@ -2081,6 +2088,20 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     public static boolean get_follower() {
         if (!is_follower_set) set_is_follower();
         return Home.is_follower;
+    }
+
+    private static void setHasLibreblock() {
+        has_libreblock =  LibreBlock.getLatestForTrend() != null;
+        has_libreblock_set = true;
+    }
+
+    public static boolean hasLibreblock() {
+        if (!has_libreblock_set) setHasLibreblock();
+        return has_libreblock;
+    }
+    
+    public static boolean get_is_libre_whole_house_collector() {
+        return Pref.getBooleanDefaultFalse("libre_whole_house_collector");
     }
 
     public static boolean get_engineering_mode() {
@@ -2454,6 +2475,19 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         if (alreadyDisplayedBgInfoCommon) return; // with bluetooth and wifi, skip second time
         alreadyDisplayedBgInfoCommon = true;
 
+        if(get_is_libre_whole_house_collector()) {
+            Long lastReading = PersistentStore.getLong("libre-reading-timestamp");
+            if(lastReading == 0) {
+                notificationText.setText(R.string.in_libre_all_house_mode_no_readings_collected_yet);
+            } else {
+                int minutes = (int) (JoH.tsl() - lastReading) / (60 * 1000);
+                final String fmt = getString(R.string.minutes_ago);
+                notificationText.setText(R.string.in_libre_all_house_mode_last_data_collected);
+                notificationText.append(MessageFormat.format(fmt, minutes));
+            }
+            return;
+        }
+
         boolean isSensorActive = Sensor.isActive();
 
         // automagically start an xDrip sensor session if G5 transmitter already has active sensor
@@ -2756,7 +2790,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         }
 
         final int sensor_age = Pref.getInt("nfc_sensor_age", 0);
-        if ((sensor_age > 0) && (DexCollectionType.hasLibre())) {
+        if (sensor_age > 0 && (DexCollectionType.hasLibre() || hasLibreblock())) {
             final String age_problem = (Pref.getBooleanDefaultFalse("nfc_age_problem") ? " \u26A0\u26A0\u26A0" : "");
             if (Pref.getBoolean("nfc_show_age", true)) {
                 sensorAge.setText("Age: " + JoH.qs(((double) sensor_age) / 1440, 1) + "d" + age_problem);
@@ -3035,11 +3069,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
         menu.findItem(R.id.showreminders).setVisible(Pref.getBoolean("plus_show_reminders", true) && !is_newbie);
 
-        LibreBlock libreBlock = null;
-        if (DexCollectionType.hasLibre()) {
-            libreBlock = LibreBlock.getLatestForTrend();
-        }
-        if (libreBlock == null) {
+        if (!hasLibreblock()) {
             menu.findItem(R.id.libreLastMinutes).setVisible(false);
         }
 
